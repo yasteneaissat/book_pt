@@ -457,8 +457,7 @@ function startBook() {
     showCover: true,
 
     // Rendu "Issuu"
-    drawShadow: true,         // ombres dynamiques sur la page et les pages voisines
-    maxShadowOpacity: 0.6,    // intensité des ombres (0 à 1)
+    drawShadow: false,
     showPageCorners: true,    // coin qui se soulève au survol de la souris
     flippingTime: REDUCED_MOTION.matches ? FLIP_TIME / 2 : FLIP_TIME,
 
