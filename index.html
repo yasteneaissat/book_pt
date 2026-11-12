@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Référencement -->
+  <title>Book Paris Terrasse — Réalisations de terrasses, balcons, rooftops et jardins à Paris</title>
+  <meta name="description" content="Découvrez le book de Paris Terrasse, paysagiste à Paris depuis plus de 10 ans : conception, réalisation et entretien de terrasses, balcons, rooftops et jardins en Île-de-France.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Paris Terrasse">
+  <!-- À adapter : adresse réelle du book une fois en ligne -->
+  <link rel="canonical" href="https://www.paristerrasse.fr/book/">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <!-- Aperçu quand le lien est partagé (Facebook, LinkedIn, WhatsApp, X...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Paris Terrasse">
+  <meta property="og:title" content="Book Paris Terrasse — Paysagiste à Paris">
+  <meta property="og:description" content="Nos réalisations de terrasses, balcons, rooftops et jardins à Paris et en Île-de-France.">
+  <meta property="og:url" content="https://www.paristerrasse.fr/book/">
+  <meta property="og:image" content="https://www.paristerrasse.fr/wp-content/uploads/2024/10/HOME-HUGO-1024x785.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fiche entreprise pour Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Paris Terrasse",
+    "description": "Paysagiste à Paris : conception, réalisation et entretien de terrasses, balcons, rooftops et jardins.",
+    "url": "https://www.paristerrasse.fr/",
+    "logo": "https://www.paristerrasse.fr/wp-content/uploads/2024/09/logo-PT-grand.svg",
+    "telephone": "+33666169322",
+    "email": "contact@paristerrasse.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 rue de la Chine",
+      "postalCode": "75020",
+      "addressLocality": "Paris",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Paris", "Île-de-France"]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <!-- Polices du site Paris Terrasse -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap">
+
+  <!-- Thème clair / sombre (avant le CSS pour éviter un flash) -->
+  <script src="assets/js/theme.js?v=10"></script>
+
+  <!-- Styles (?v=10 : augmenter ce numéro après une modification pour que les navigateurs rechargent les fichiers) -->
+  <link rel="stylesheet" href="assets/css/variables.css?v=10">
+  <link rel="stylesheet" href="assets/css/base.css?v=10">
+  <link rel="stylesheet" href="assets/css/header.css?v=10">
+  <link rel="stylesheet" href="assets/css/book.css?v=10">
+  <link rel="stylesheet" href="assets/css/navigation.css?v=10">
+  <link rel="stylesheet" href="assets/css/footer.css?v=10">
+  <link rel="stylesheet" href="assets/css/print.css?v=10" media="print">
+
+  <!--
+    Moteur de pages StPageFlip (page-flip 2.0.7, licence MIT, sans dépendance) : pliage souple,
+    coins qui se soulèvent, ombres dynamiques. Version figée + empreinte "integrity" :
+    le navigateur refuse le fichier s'il a été modifié sur le CDN.
+    Si le CDN ne répond pas, book.js charge la copie locale assets/js/vendor/page-flip.browser.js.
+    "defer" : les deux scripts s'exécutent dans l'ordre, une fois la page lue.
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
+          integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW"
+          crossorigin="anonymous" defer></script>
+  <script src="assets/js/book.js?v=10" defer></script>
+</head>
+<body>
+
+  <!-- Icônes utilisées dans la page -->
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="icon-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+    <symbol id="icon-volume-off" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="icon-restart" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+    <symbol id="icon-shrink" viewBox="0 0 24 24"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></symbol>
+    <symbol id="icon-swipe" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#book">Aller au book</a>
+
+
+  <!-- ==================== En-tête ==================== -->
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="https://www.paristerrasse.fr/" title="Paris Terrasse — site officiel">
+        <img class="header__logo" src="assets/img/logo-paris-terrasse.svg" alt="Paris Terrasse, paysagiste" width="320" height="55">
+      </a>
+
+      <a class="header__phone" href="tel:+33666169322">
+        <svg class="icon icon--small"><use href="#icon-phone"/></svg>
+        06 66 16 93 22
+      </a>
+
+      <div class="header__buttons">
+        <button type="button" class="button button--outline theme-button" data-action="theme" aria-label="Mode clair ou sombre" title="Mode clair / sombre">
+          <svg class="icon icon--small icon-moon"><use href="#icon-moon"/></svg>
+          <svg class="icon icon--small icon-sun"><use href="#icon-sun"/></svg>
+        </button>
+
+        <button type="button" class="button button--outline" data-action="summary" aria-controls="summary" aria-expanded="false" aria-label="Sommaire">
+          <svg class="icon icon--small"><use href="#icon-grid"/></svg>
+          <span class="button__label">Sommaire</span>
+        </button>
+
+        <a class="button" href="mailto:contact@paristerrasse.fr" aria-label="Contact">
+          <svg class="icon icon--small"><use href="#icon-mail"/></svg>
+          <span class="button__label">Contact</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== Le livre ==================== -->
+
+  <main class="stage">
+    <h1 class="stage__title">
+      Book de réalisations
+      <span>Terrasses · Balcons · Rooftops · Jardins à Paris</span>
+    </h1>
+
+    <p class="stage__hint">
+      <svg class="icon icon--small"><use href="#icon-swipe"/></svg>
+      Glissez ou touchez les bords pour tourner les pages
+    </p>
+
+    <div class="book-wrapper">
+      <!--
+        Le livre : une simple liste de pages, dans l'ordre.
+        book.js les confie à StPageFlip, qui les fait tourner comme du vrai papier
+        (couverture et 4e de couverture rigides, pages intérieures souples).
+        Le nombre de pages doit être pair (couverture + pages + 4e de couverture).
+
+        Pour remplir une page vide, écrire dans son "page__content", avant le numéro :
+          <h2 class="page__title">Nom du projet</h2>
+          <p class="page__text">Description du projet...</p>
+          <img class="page__photo" src="assets/img/projets/photo.webp" alt="Description de la photo">
+      -->
+      <!-- Grande flèche gauche (ordinateur) -->
+      <button type="button" class="book-arrow book-arrow--prev" data-action="prev" aria-label="Page précédente">
+        <svg class="icon"><use href="#icon-left"/></svg>
+      </button>
+
+      <div class="book" id="book" aria-label="Book Paris Terrasse">
+
+        <!-- Couverture -->
+        <section class="page page--cover" aria-label="Couverture">
+          <div class="page__content">
+            <div class="cover__frame"></div>
+
+            <div class="cover__top">
+              <span>Paris Terrasse</span>
+              <span>2026</span>
+            </div>
+
+            <div class="cover__middle">
+              <img class="cover__logo" src="assets/img/logo-paris-terrasse.svg" alt="Logo Paris Terrasse" width="320" height="55">
+              <hr class="cover__line">
+              <p class="cover__title">
+                Nos réalisations
+                <small>Architecte de votre tranquillité</small>
+              </p>
+            </div>
+
+            <div class="cover__bottom">
+              <span>Paris — Île-de-France</span>
+              <span class="cover__open">
+                Ouvrir
+                <svg class="icon icon--small"><use href="#icon-right"/></svg>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 1 : une grande image en pleine page -->
+        <section class="page page--blank page--full-photo" aria-label="Page 1">
+          <div class="page__content">
+            <figure class="full-photo">
+              <img src="assets/img/projets/perspective-parc.webp" fetchpriority="high" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
+              <figcaption class="full-photo__caption">Perspective d'ambiance</figcaption>
+            </figure>
+            <span class="page__number">01</span>
+          </div>
+        </section>
+
+        <!-- Page 2 : une image large en haut, deux en bas -->
+        <section class="page page--blank" aria-label="Page 2">
+          <div class="page__content">
+            <div class="gallery">
+              <figure class="gallery__item gallery__item--wide">
+                <img src="assets/img/projets/vue-aerienne-parc.webp" fetchpriority="high" alt="Vue aérienne d'un parc avec allées, pelouses et aires de jeux" width="698" height="1000">
+                <figcaption>Vue aérienne</figcaption>
+              </figure>
+              <figure class="gallery__item">
+                <img src="assets/img/projets/plan-masse.webp" fetchpriority="high" alt="Plan masse coloré d'un jardin avec aires de jeux et plantations" width="736" height="1227">
+                <figcaption>Plan masse</figcaption>
+              </figure>
+              <figure class="gallery__item gallery__item--whole">
+                <img src="assets/img/projets/coupes-1-200.webp" fetchpriority="high" alt="Coupes paysagères au 1/200 montrant les berges et les plantations" width="736" height="845">
+                <figcaption>Coupes 1/200</figcaption>
+              </figure>
+            </div>
+            <span class="page__number">02</span>
+          </div>
+        </section>
+
+        <!-- Page 3 : deux images horizontales l'une sous l'autre -->
+        <section class="page page--blank" aria-label="Page 3">
+          <div class="page__content">
+            <div class="gallery gallery--stack">
+              <figure class="gallery__item">
+                <img src="assets/img/projets/rooftop-maquette-3d.webp" alt="Maquette 3D d'un rooftop avec dallage, jardinières et pergola" width="736" height="476">
+                <figcaption>Maquette 3D</figcaption>
+              </figure>
+              <figure class="gallery__item">
+                <img src="assets/img/projets/rooftop-rendu.webp" alt="Rendu d'un toit-terrasse avec pergola en bois, pelouse et salons d'extérieur" width="640" height="384">
+                <figcaption>Rendu d'ambiance</figcaption>
+              </figure>
+            </div>
+            <span class="page__number">03</span>
+          </div>
+        </section>
+
+        <!-- Page 4 : une image en pleine page + une vignette par-dessus -->
+        <section class="page page--blank page--full-photo" aria-label="Page 4">
+          <div class="page__content">
+            <figure class="full-photo">
+              <img src="assets/img/projets/rooftop-vue-ensemble.webp" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
+              <figcaption class="full-photo__caption">Rooftop — vue d'ensemble</figcaption>
+            </figure>
+            <figure class="photo-inset">
+              <img src="assets/img/projets/rooftop-terrasse-bois.webp" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
+              <figcaption>Terrasse bois</figcaption>
+            </figure>
+            <span class="page__number">04</span>
+          </div>
+        </section>
+
+        <!-- Pages 5 à 10 : vides pour l'instant -->
+        <section class="page page--blank" aria-label="Page 5">
+          <div class="page__content"><span class="page__number">05</span></div>
+        </section>
+        <section class="page page--blank" aria-label="Page 6">
+          <div class="page__content"><span class="page__number">06</span></div>
+        </section>
+        <section class="page page--blank" aria-label="Page 7">
+          <div class="page__content"><span class="page__number">07</span></div>
+        </section>
+        <section class="page page--blank" aria-label="Page 8">
+          <div class="page__content"><span class="page__number">08</span></div>
+        </section>
+        <section class="page page--blank" aria-label="Page 9">
+          <div class="page__content"><span class="page__number">09</span></div>
+        </section>
+        <section class="page page--blank" aria-label="Page 10">
+          <div class="page__content"><span class="page__number">10</span></div>
+        </section>
+
+        <!-- 4e de couverture -->
+        <section class="page page--cover" aria-label="4e de couverture">
+          <div class="page__content">
+            <div class="cover__frame"></div>
+
+            <div class="cover__top">
+              <span>Paris Terrasse</span>
+              <span>Fin</span>
+            </div>
+
+            <div class="cover__middle">
+              <img class="back-cover__logo" src="assets/img/logo-paris-terrasse.svg" alt="Paris Terrasse" width="320" height="55">
+              <p class="back-cover__slogan">Donnez de la perspective à vos projets</p>
+              <hr class="cover__line">
+              <address class="back-cover__contact">
+                7 rue de la Chine, 75020 Paris<br>
+                <a href="tel:+33666169322">06 66 16 93 22</a><br>
+                <a href="mailto:contact@paristerrasse.fr">contact@paristerrasse.fr</a><br>
+                <a href="https://www.paristerrasse.fr/">www.paristerrasse.fr</a>
+              </address>
+            </div>
+
+            <div class="cover__bottom">
+              <span>© Paris Terrasse</span>
+              <button type="button" class="back-cover__restart" data-goto="0">
+                <svg class="icon icon--small"><use href="#icon-restart"/></svg>
+                Début
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Grande flèche droite (ordinateur) -->
+      <button type="button" class="book-arrow book-arrow--next" data-action="next" aria-label="Page suivante">
+        <svg class="icon"><use href="#icon-right"/></svg>
+      </button>
+    </div>
+
+    <!-- Barre de navigation -->
+    <nav class="toolbar" aria-label="Tourner les pages">
+      <button type="button" class="toolbar__button" data-action="prev" aria-label="Page précédente">
+        <svg class="icon"><use href="#icon-left"/></svg>
+        <span class="toolbar__text">Précédent</span>
+      </button>
+
+      <div class="toolbar__middle">
+        <span class="toolbar__page" id="page-label" aria-live="polite">Couverture</span>
+        <div class="dots" id="dots"></div>
+      </div>
+
+      <div class="toolbar__right">
+        <button type="button" class="toolbar__button" data-action="sound" aria-pressed="true" aria-label="Son des pages">
+          <svg class="icon icon--small"><use href="#icon-volume"/></svg>
+        </button>
+        <button type="button" class="toolbar__button" data-action="fullscreen" aria-pressed="false" aria-label="Plein écran" title="Plein écran">
+          <svg class="icon icon--small"><use href="#icon-expand"/></svg>
+        </button>
+        <button type="button" class="toolbar__button" data-action="next" aria-label="Page suivante">
+          <span class="toolbar__text">Suivant</span>
+          <svg class="icon"><use href="#icon-right"/></svg>
+        </button>
+      </div>
+    </nav>
+  </main>
+
+
+  <!-- ==================== Pied de page ==================== -->
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <address>7 rue de la Chine, 75020 Paris</address>
+      <a href="tel:+33666169322">Tél. : 06 66 16 93 22</a>
+      <a href="mailto:contact@paristerrasse.fr">contact@paristerrasse.fr</a>
+      <a href="https://www.paristerrasse.fr/">© Paris Terrasse</a>
+    </div>
+  </footer>
+
+
+  <!-- ==================== Sommaire ==================== -->
+
+  <div class="overlay" data-action="close-summary"></div>
+
+  <aside class="summary" id="summary" aria-label="Sommaire">
+    <div class="summary__inner">
+      <div class="summary__header">
+        <span class="summary__title">Sommaire</span>
+        <button type="button" class="toolbar__button" data-action="close-summary" aria-label="Fermer le sommaire">
+          <svg class="icon"><use href="#icon-close"/></svg>
+        </button>
+      </div>
+      <!-- Rempli automatiquement par book.js -->
+      <div class="summary__list" id="summary-list"></div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status">
+    <svg class="icon icon--small"><use href="#icon-check"/></svg>
+    <span id="toast-text"></span>
+  </div>
+
+</body>
+</html>

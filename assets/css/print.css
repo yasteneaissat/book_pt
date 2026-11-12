@@ -1,0 +1,62 @@
+/*
+  Impression (ou "Enregistrer en PDF") : toutes les pages à la suite,
+  une page du book par feuille.
+
+  StPageFlip place les pages dans .stf__wrapper > .stf__block et leur donne
+  des styles "inline" (taille, découpe, rotation, display: none) :
+  on les annule ici avec !important.
+*/
+
+body {
+  display: block;
+  background: #FFFFFF;
+}
+
+.header__buttons,
+.stage__hint,
+.toolbar,
+.summary,
+.overlay,
+.toast,
+.footer,
+.book-arrow {
+  display: none !important;
+}
+
+.book {
+  width: auto !important;
+  min-width: 0 !important;
+  aspect-ratio: auto !important;
+  transform: none !important;
+}
+
+.book .stf__wrapper,
+.book .stf__block {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  perspective: none !important;
+}
+
+/* Ombres de pliage dessinées par StPageFlip */
+.stf__outerShadow,
+.stf__innerShadow,
+.stf__hardShadow,
+.stf__hardInnerShadow {
+  display: none !important;
+}
+
+.page {
+  position: relative !important;
+  display: block !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: 100vh !important;
+  transform: none !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  box-shadow: none !important;
+  break-after: page;
+}

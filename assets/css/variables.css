@@ -1,0 +1,64 @@
+/*
+  Couleurs et polices du book.
+  Reprises du site paristerrasse.fr.
+*/
+
+:root {
+  /* Couleurs Paris Terrasse */
+  --green: #6B7763;
+  --green-light: #94AF8C;
+  --green-dark: #4E5848;
+  --gold: #B4A767;
+
+  /* Couleurs de l'interface (mode clair) */
+  --background: #F6F6F6;
+  --surface: #FFFFFF;
+  --title: #303030;
+  --text: #818181;
+  --text-light: #999999;
+  --border: #E3E3E3;
+  --footer: #262626;
+  --dot: #D6D6D6;
+  --shadow: rgba(0, 0, 0, .18);
+
+  /* Pages du livre : couleur du fond et dessin décoratif.
+     Dessins disponibles dans assets/img/fonds/ :
+       feuillage-clair.svg  (branches ton sur ton, fond #DCE5D4)
+       feuillage-fonce.svg  (branches vert foncé, fond #DCE5D4)
+       courbes-niveau.svg   (lignes topographiques, fond #E4EADF)
+       feuillage-trait.svg  (branches au trait fin, fond #E4EADF) */
+  --paper: #DCE5D4;
+  --paper-motif: url("../img/fonds/feuillage-clair.svg");
+  --paper-fold: rgba(0, 0, 0, .10);
+
+  /* Polices */
+  --font-title: 'Playfair Display', Georgia, serif;
+  --font-text: 'Raleway', Arial, sans-serif;
+
+  /* Hauteurs fixes, utilisées pour calculer la taille du livre */
+  --header-height: 72px;
+  --footer-height: 60px;
+}
+
+
+/*
+  Mode sombre.
+  L'attribut data-theme est posé sur <html> par theme.js.
+  Les pages du livre gardent leur fond vert clair.
+*/
+
+[data-theme="dark"] {
+  --background: #161816;
+  --surface: #1F221E;
+  --title: #ECECE8;
+  --text: #A3A69F;
+  --text-light: #8A8D86;
+  --border: #33372F;
+  --footer: #0E0F0D;
+  --dot: #4A4E46;
+  --shadow: rgba(0, 0, 0, .55);
+
+  --paper-fold: rgba(0, 0, 0, .16);
+
+  color-scheme: dark;
+}

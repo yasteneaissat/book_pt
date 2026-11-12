@@ -1,0 +1,638 @@
+/*
+  Le livre.
+
+  Les pages tournent avec StPageFlip (voir book.js). La bibliothèque :
+  - déplace les <section class="page"> dans .stf__wrapper > .stf__block ;
+  - leur donne à chaque image leur position, leur taille, leur découpe (clip-path)
+    et leur rotation en style "inline" (on ne règle donc ici ni position ni taille) ;
+  - leur ajoute les classes .stf__item, .--left / .--right (côté de la reliure)
+    et .--soft / .--hard (page souple ou couverture rigide) ;
+  - dessine elle-même les ombres (.stf__outerShadow, .stf__innerShadow...).
+
+  - Ordinateur : double page.
+  - Téléphone : une page à la fois.
+*/
+
+
+/* ---------- Zone centrale : titre, livre et barre de navigation ---------- */
+
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px 16px;
+}
+
+.stage__title {
+  color: var(--title);
+  font-family: var(--font-title);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stage__title span {
+  display: block;
+  margin-top: 2px;
+  color: var(--green);
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.stage__hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+.stage__hint .icon {
+  color: var(--green);
+}
+
+.book-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  /* (La perspective 3D est maintenant gérée par StPageFlip, dans .stf__block) */
+}
+
+
+/* ---------- Grandes flèches de chaque côté du livre (ordinateur) ---------- */
+
+.book-arrow {
+  display: none;
+  flex-shrink: 0;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--green);
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform var(--turn-time) var(--turn-curve), background-color .2s, color .2s, opacity .2s;
+}
+
+.book-arrow .icon {
+  width: 26px;
+  height: 26px;
+}
+
+.book-arrow:hover {
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.book-arrow:disabled {
+  opacity: .3;
+  cursor: default;
+  background: var(--surface);
+  color: var(--green);
+}
+
+
+/* ---------- Réglages de l'animation ---------- */
+
+:root {
+  --turn-time: .8s; /* garder la même valeur que FLIP_TIME dans book.js */
+  --turn-curve: cubic-bezier(.645, .045, .355, 1); /* départ doux, accélération, arrivée douce */
+}
+
+/* Au démarrage (et à l'ouverture sur #page-X), le livre et les flèches
+   se placent sans glisser */
+.book-wrapper.no-animation,
+.book-wrapper.no-animation * {
+  transition: none !important;
+}
+
+
+/* ---------- Le livre sur téléphone (par défaut) : une page à la fois ---------- */
+
+.book {
+  position: relative;
+  width: min(100%, 440px, calc((100vh - var(--header-height) - 190px) * .75));
+  min-width: 260px;
+  aspect-ratio: 3 / 4;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Conteneurs créés par StPageFlip : ils occupent tout le livre.
+   (La feuille de style de la bibliothèque ne leur donne pas de taille
+   quand autoSize est désactivé.) */
+.book .stf__wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.page {
+  position: absolute;
+  display: none; /* StPageFlip affiche les pages visibles */
+  overflow: hidden;
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .35);
+  /* Permet de dimensionner le texte selon la taille de la page */
+  container-type: size;
+}
+
+/* Avant le démarrage de StPageFlip (ou s'il n'a pas pu se charger) :
+   on montre la couverture pour éviter un livre vide */
+.book:not(.stf__parent) > .page:first-of-type {
+  display: block;
+  inset: 0;
+}
+
+/* Une page dans le moteur : taille et position viennent de StPageFlip */
+.page.stf__item {
+  right: auto;
+  bottom: auto;
+}
+
+/* On peut cliquer sur une page pour la tourner, ou l'attraper */
+.book .stf__item {
+  cursor: pointer;
+}
+
+.book.is-dragging,
+.book.is-dragging .stf__item {
+  cursor: grabbing;
+}
+
+
+/* ---------- Le livre sur ordinateur : double page ----------
+   Attention : cette condition est aussi écrite dans book.js (DESKTOP). */
+
+@media (min-width: 900px) and (min-height: 560px) {
+
+  .book-wrapper {
+    /* Place laissée aux deux grandes flèches : 2 x (56 px + 16 px d'écart) */
+    --book-width: min(calc(100vw - 180px), 1500px, calc((100vh - var(--header-height) - 135px) * 1.5));
+  }
+
+  .book {
+    width: var(--book-width);
+    aspect-ratio: 3 / 2;
+    /* Le livre glisse pour rester centré quand il s'ouvre ou se ferme */
+    transition: transform var(--turn-time) var(--turn-curve);
+  }
+
+  .book.is-closed-front {
+    transform: translateX(-25%);
+  }
+
+  .book.is-closed-back {
+    transform: translateX(25%);
+  }
+
+  /* Le rabat d'une page qui tourne ne doit pas déborder sur le titre ni sur la
+     barre du bas : on coupe ce qui dépasse du livre (marges = ombre portée) */
+  .book .stf__block {
+    clip-path: inset(-6px -16px -36px -16px);
+  }
+
+  /* Avant le démarrage du moteur : la couverture à droite, comme un livre fermé */
+  .book:not(.stf__parent) > .page:first-of-type {
+    left: 50%;
+  }
+
+  /* Les flèches suivent le livre : collées à la couverture quand il est fermé */
+  .book-arrow {
+    display: grid;
+  }
+
+  .book-wrapper.is-closed-front .book-arrow--prev,
+  .book-wrapper.is-closed-back .book-arrow--prev {
+    transform: translateX(calc(var(--book-width) * .25));
+  }
+
+  .book-wrapper.is-closed-front .book-arrow--next,
+  .book-wrapper.is-closed-back .book-arrow--next {
+    transform: translateX(calc(var(--book-width) * -.25));
+  }
+
+  /* Épaisseur du livre : fines tranches de papier sur les bords extérieurs.
+     .--right = page de droite (ancienne .page--front), .--left = page de gauche. */
+  .page.--right {
+    box-shadow:
+      1px 0 0 #E8E8E2, 2px 0 0 #D6D6CF, 3px 0 0 #E8E8E2, 4px 0 0 #D2D2CA,
+      0 14px 30px -12px rgba(0, 0, 0, .35);
+  }
+
+  .page.--left {
+    box-shadow:
+      -1px 0 0 #E8E8E2, -2px 0 0 #D6D6CF, -3px 0 0 #E8E8E2, -4px 0 0 #D2D2CA,
+      0 14px 30px -12px rgba(0, 0, 0, .35);
+  }
+
+  .stage__hint {
+    display: none;
+  }
+}
+
+
+/* ---------- Ombres de StPageFlip ----------
+   Elles sont dessinées par la bibliothèque (dégradés noirs dont l'opacité suit
+   l'avancement du pli). Leur intensité se règle avec maxShadowOpacity dans book.js.
+   Elles ne doivent jamais bloquer la souris. */
+
+.book .stf__outerShadow,
+.book .stf__innerShadow,
+.book .stf__hardShadow,
+.book .stf__hardInnerShadow {
+  pointer-events: none;
+}
+
+
+/* ---------- Plein écran : seul le livre et sa barre restent visibles ---------- */
+
+.is-fullscreen .header,
+.is-fullscreen .footer,
+.is-fullscreen .stage__title,
+.is-fullscreen .stage__hint {
+  display: none;
+}
+
+.is-fullscreen .stage {
+  min-height: 100vh;
+}
+
+.is-fullscreen .book {
+  width: min(100%, 600px, calc((100vh - 90px) * .75));
+}
+
+@media (min-width: 900px) and (min-height: 560px) {
+  .is-fullscreen .book-wrapper {
+    --book-width: min(calc(100vw - 180px), calc((100vh - 90px) * 1.5));
+  }
+
+  /* Sans cette règle, celle du téléphone (plus haut) l'emporterait en plein écran */
+  .is-fullscreen .book {
+    width: var(--book-width);
+  }
+}
+
+
+/* ---------- Contenu des pages ---------- */
+
+.page__content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 5cqh, 44px) clamp(14px, 7cqw, 40px);
+  font-size: clamp(10px, 2.25cqh, 15px);
+}
+
+.page--blank {
+  /* Les pages gardent des couleurs claires, même en mode sombre */
+  --title: #303030;
+  --text: #818181;
+  --border: #E3E3E3;
+
+  /* Fond vert clair + dessin décoratif (à changer dans variables.css)
+     ESSAI : fond blanc. Pour revenir au vert, remettre les deux lignes ci-dessous :
+       background-color: var(--paper);
+       background-image: var(--paper-motif);  */
+  background-color: #FFFFFF;
+  background-image: none;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Liseré très léger sur le bord des pages : quand une page claire tourne
+   au-dessus d'une autre, on distingue son contour (sinon les photos de dessous
+   semblent "coupées en biais") */
+.page--blank::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+  pointer-events: none;
+}
+
+/* Ombre de la pliure au milieu du livre (ordinateur).
+   StPageFlip indique le côté de chaque page : .--left (gauche) / .--right (droite). */
+@media (min-width: 900px) and (min-height: 560px) {
+  .page--blank .page__content::before {
+    content: '';
+    position: absolute;
+    z-index: 2; /* au-dessus des photos */
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+  }
+
+  .page--blank.--left .page__content::before {
+    right: 0;
+    background: linear-gradient(to left, var(--paper-fold), transparent);
+  }
+
+  .page--blank.--right .page__content::before {
+    left: 0;
+    background: linear-gradient(to right, var(--paper-fold), transparent);
+  }
+}
+
+.page__number {
+  margin-top: auto;
+  align-self: center;
+  padding: .2em .7em;
+  background: #FFFFFF;
+  color: #303030;
+  font-size: .75em;
+  letter-spacing: 2px;
+}
+
+.gallery + .page__number {
+  margin-top: 1em;
+}
+
+/* Styles prêts à l'emploi pour remplir une page plus tard */
+.page__title {
+  color: var(--title);
+  font-family: var(--font-title);
+  font-size: 1.6em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.page__text {
+  margin-top: .8em;
+  color: var(--text);
+}
+
+.page__photo {
+  width: 100%;
+  height: auto;
+  margin-top: 1em;
+  object-fit: cover;
+}
+
+
+/* ---------- Pages avec photos ---------- */
+
+/* Une image qui occupe toute la page */
+.full-photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.full-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.full-photo__caption {
+  position: absolute;
+  left: 1.5em;
+  bottom: 1.5em;
+  padding: .4em .9em;
+  background: rgba(255, 255, 255, .92);
+  color: var(--title);
+  font-size: .75em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.page--full-photo .page__number {
+  position: absolute;
+  right: 1.5em;
+  bottom: 1.5em;
+  margin: 0;
+}
+
+/* Plusieurs images : une large en haut, deux en bas */
+.gallery {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1.3fr;
+  gap: 1em;
+}
+
+/* Variante : images empilées sur toute la largeur */
+.gallery--stack {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.gallery__item {
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4em;
+}
+
+.gallery__item img {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  border: 4px solid #FFFFFF; /* liseré blanc qui détache la photo du fond */
+  background: #FFFFFF;
+}
+
+.gallery__item figcaption {
+  align-self: flex-start;
+  padding: .2em .7em;
+  background: #FFFFFF;
+  color: var(--title);
+  font-size: .7em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Image sur toute la largeur, recadrée sur le centre */
+.gallery__item--wide {
+  grid-column: 1 / -1;
+}
+
+.gallery__item--wide img {
+  object-position: center 65%;
+}
+
+/* Dessin sur fond blanc (coupes) : montré en entier, sans recadrage */
+.gallery__item--whole img {
+  object-fit: contain;
+}
+
+/* Petite photo encadrée de blanc, posée sur une image pleine page */
+.photo-inset {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  width: 38%;
+  margin: 0;
+  padding: .4em .4em .3em;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+}
+
+.photo-inset img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.photo-inset figcaption {
+  padding-top: .3em;
+  color: #303030;
+  font-size: .65em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+/* ---------- Couverture et 4e de couverture ---------- */
+
+.page--cover {
+  background: radial-gradient(circle at 50% 38%, #7A866F, var(--green) 55%, var(--green-dark));
+  color: #FFFFFF;
+}
+
+.page--cover .page__content {
+  justify-content: space-between;
+}
+
+/* Fin cadre doré autour de la couverture */
+.cover__frame {
+  position: absolute;
+  inset: clamp(10px, 3cqh, 22px);
+  border: 1px solid rgba(180, 167, 103, .55);
+  pointer-events: none;
+}
+
+.cover__top,
+.cover__bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  color: rgba(255, 255, 255, .8);
+  font-size: .75em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cover__middle {
+  position: relative;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3em;
+  text-align: center;
+}
+
+.cover__logo {
+  width: min(84%, 360px);
+  height: auto;
+}
+
+.cover__line {
+  width: 50px;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--gold);
+}
+
+.cover__title {
+  font-family: var(--font-title);
+  font-size: 2.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.cover__title small {
+  display: block;
+  margin-top: .6em;
+  color: var(--gold);
+  font-family: var(--font-text);
+  font-size: .36em;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.cover__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold);
+}
+
+.back-cover__logo {
+  width: min(70%, 280px);
+  height: auto;
+}
+
+.back-cover__slogan {
+  font-family: var(--font-title);
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.back-cover__contact {
+  color: rgba(255, 255, 255, .85);
+  font-size: .9em;
+  line-height: 1.8;
+}
+
+.back-cover__contact a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.back-cover__contact a:hover,
+.back-cover__restart {
+  color: var(--gold);
+}
+
+.back-cover__restart {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.back-cover__restart:hover {
+  color: #FFFFFF;
+}
+
+
+@media (min-width: 640px) {
+  .stage__title {
+    font-size: 24px;
+  }
+}
