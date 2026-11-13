@@ -188,6 +188,11 @@
     transition: transform var(--turn-time) var(--turn-curve);
   }
 
+  .book-wrapper.is-edge-settling .book,
+  .book-wrapper.is-edge-settling .book-arrow {
+    transition-duration: .3s;
+  }
+
   .book.is-closed-front {
     transform: translateX(-25%);
   }
@@ -634,5 +639,12 @@
 @media (min-width: 640px) {
   .stage__title {
     font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 900px) and (min-height: 560px) {
+  .book-wrapper .book,
+  .book-wrapper .book-arrow {
+    transition-duration: 150ms !important;
   }
 }

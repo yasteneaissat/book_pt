@@ -39,6 +39,7 @@ const overlay = document.querySelector('.overlay');
 let pageFlip = null;   // le moteur StPageFlip (créé au démarrage)
 let currentPage = 0;   // page affichée (sur ordinateur : page de gauche de la double page)
 let soundOn = true;
+let edgeSettleTimer = 0;
 
 
 /* ---------- Photos prêtes à l'avance ----------
@@ -74,6 +75,11 @@ const lastSpread = spreadOf(lastPage);
 function firstPageOf(spread) {
   if (spread >= lastSpread) return lastPage;
   return Math.max(0, spread * 2 - 1);
+}
+
+function isEdgeSpread(page) {
+  const spread = spreadOf(page);
+  return spread === 0 || spread === lastSpread;
 }
 
 function spreadName(spread) {
@@ -158,8 +164,9 @@ function goToPage(page) {
   const target = DESKTOP.matches ? firstPageOf(spreadOf(page)) : page;
   if (target === currentPage) return;
 
-  // Le livre glisse (ouverture / fermeture) pendant que la page tourne
-  setClosedLook(target);
+  // Aux couvertures, on laisse d'abord tourner la feuille seule.
+  const edgeTurn = DESKTOP.matches && (isEdgeSpread(currentPage) || isEdgeSpread(target));
+  if (!edgeTurn) setClosedLook(target);
 
   // Une seule page tourne, même pour un saut lointain (comme sur Issuu)
   pageFlip.flip(target, FLIP_CORNER);
@@ -503,6 +510,12 @@ function startBook() {
     const page = Number(event.data);
     if (page === currentPage) return; // simple redessin : rien n'a changé
 
+    const edgeTurn = DESKTOP.matches && (isEdgeSpread(currentPage) || isEdgeSpread(page));
+    if (edgeTurn) {
+      clearTimeout(edgeSettleTimer);
+      bookWrapper.classList.add('is-edge-settling');
+    }
+
     // Page lâchée au doigt / à la souris : le son n'a pas encore été joué
     const turnedByReader = flipState() !== 'read';
     currentPage = page;
@@ -512,6 +525,12 @@ function startBook() {
     }
 
     updateInterface();
+
+    if (edgeTurn) {
+      edgeSettleTimer = setTimeout(() => {
+        bookWrapper.classList.remove('is-edge-settling');
+      }, 350);
+    }
   });
 
   pageFlip.loadFromHTML(pages);
