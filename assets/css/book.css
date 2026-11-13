@@ -1086,6 +1086,159 @@
 }
 
 
+/* ---------- Pages 17–18 : « Votre projet ? » ---------- */
+
+.page--project {
+  --title: #30362D;
+  --text: #6D7067;
+}
+
+.project-page {
+  justify-content: center;
+  gap: clamp(14px, 4cqh, 28px);
+}
+
+.project-page__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .9em;
+}
+
+.project-page__eyebrow {
+  color: var(--green);
+  font-size: .72em;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.project-page__title {
+  color: var(--title);
+  font-family: var(--font-title);
+  font-size: clamp(1.6em, 6cqw, 2.6em);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.project-page__title--big {
+  font-size: clamp(2.2em, 9cqw, 4em);
+}
+
+.project-page__text {
+  max-width: 26em;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Les 4 étapes, numérotées en doré */
+.project-steps {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 3cqh, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-steps__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  padding-top: clamp(8px, 2cqh, 14px);
+  border-top: 1px solid rgba(91, 112, 82, .25);
+}
+
+.project-steps__number {
+  flex: 0 0 auto;
+  color: var(--gold);
+  font-family: var(--font-title);
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+.project-steps h3 {
+  margin-bottom: .3em;
+  color: var(--title);
+  font-size: .9em;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.project-steps p {
+  color: var(--text);
+  font-size: .85em;
+  line-height: 1.55;
+}
+
+/* Page de droite : texte centré, boutons, QR code */
+.project-page--cta {
+  align-items: center;
+  text-align: center;
+}
+
+.project-page__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .7em;
+  width: min(100%, 19em);
+}
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7em;
+  min-height: 2.9em;
+  padding: .6em 1.2em;
+  border: 2px solid var(--title);
+  background: var(--title);
+  color: #FFFFFF;
+  font-size: .78em;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s, border-color .2s, color .2s;
+}
+
+.project-button:hover,
+.project-button:focus-visible {
+  background: var(--green);
+  border-color: var(--green);
+  color: #FFFFFF;
+}
+
+.project-button--outline {
+  background: transparent;
+  color: var(--title);
+}
+
+.project-qr {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 0;
+  padding: .8em 1em;
+  border: 1px solid rgba(180, 167, 103, .55);
+  background: rgba(255, 255, 255, .7);
+  text-align: left;
+}
+
+.project-qr img {
+  display: block;
+  width: clamp(56px, 16cqh, 116px);
+  height: auto;
+}
+
+.project-qr figcaption {
+  color: var(--text);
+  font-size: .72em;
+  line-height: 1.5;
+}
+
+
 /* ---------- Couverture et 4e de couverture ---------- */
 
 .page--cover {
