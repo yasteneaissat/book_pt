@@ -215,6 +215,32 @@
   .dots {
     display: flex;
   }
+
+  /* La barre prend la largeur de son contenu : elle s'élargit toute seule
+     quand on ajoute des pages (un point de plus par double page) */
+  .toolbar {
+    width: fit-content;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .toolbar__button {
+    flex-shrink: 0;
+  }
+
+  /* Beaucoup de pages sur un écran étroit : les points se resserrent */
+  .toolbar__middle {
+    min-width: 0;
+  }
+
+  .dots {
+    min-width: 0;
+  }
+
+  .dot {
+    flex: 0 1 16px;
+    min-width: 10px;
+  }
 }
 
 @media (min-width: 900px) {

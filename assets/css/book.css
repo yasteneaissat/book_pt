@@ -60,12 +60,99 @@
 }
 
 .book-wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   /* (La perspective 3D est maintenant gérée par StPageFlip, dans .stf__block) */
+}
+
+
+/* ---------- Bulle d'aide "comment tourner les pages" (1re visite) ----------
+   Posée au centre du livre, elle laisse passer les clics vers le livre.
+   Seules transform et opacity sont animées : aucun effet sur la fluidité. */
+
+.book-tip {
+  position: absolute;
+  left: 50%;
+  top: 74%; /* sous le logo et le slogan de la couverture */
+  z-index: 25;
+  width: max-content;
+  max-width: min(78vw, 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 22px 16px;
+  border-radius: 14px;
+  background: rgba(38, 43, 36, .95);
+  color: #FFFFFF;
+  text-align: center;
+  text-wrap: balance;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.94);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.book-tip.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.book-tip__hand {
+  width: 34px;
+  height: 34px;
+  color: var(--gold);
+  stroke-width: 1.6;
+  animation: book-tip-swipe 1.8s ease-in-out infinite;
+}
+
+.book-tip__text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.4;
+}
+
+.book-tip__text small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, .7);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Le bon texte selon l'appareil : doigt (téléphone, tablette) ou souris */
+.book-tip__text--touch {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .book-tip__text--touch {
+    display: block;
+  }
+
+  .book-tip__text--mouse {
+    display: none;
+  }
+}
+
+/* La main glisse de droite à gauche, comme pour tourner une page */
+@keyframes book-tip-swipe {
+  0%   { transform: translateX(26px) rotate(-8deg); opacity: 0; }
+  15%  { transform: translateX(26px) rotate(-8deg); opacity: 1; }
+  70%  { transform: translateX(-26px) rotate(-14deg); opacity: 1; }
+  100% { transform: translateX(-26px) rotate(-14deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-tip__hand {
+    animation: none;
+  }
 }
 
 

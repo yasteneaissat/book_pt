@@ -59,8 +59,8 @@
   <link rel="stylesheet" href="assets/css/variables.css?v=10">
   <link rel="stylesheet" href="assets/css/base.css?v=10">
   <link rel="stylesheet" href="assets/css/header.css?v=11">
-  <link rel="stylesheet" href="assets/css/book.css?v=40">
-  <link rel="stylesheet" href="assets/css/navigation.css?v=10">
+  <link rel="stylesheet" href="assets/css/book.css?v=43">
+  <link rel="stylesheet" href="assets/css/navigation.css?v=11">
   <link rel="stylesheet" href="assets/css/footer.css?v=10">
   <link rel="stylesheet" href="assets/css/print.css?v=13" media="print">
 
@@ -75,7 +75,7 @@
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
           integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW"
           crossorigin="anonymous" defer></script>
-  <script src="assets/js/book.js?v=18" defer></script>
+  <script src="assets/js/book.js?v=19" defer></script>
 </head>
 <body>
 
@@ -95,6 +95,7 @@
     <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
     <symbol id="icon-shrink" viewBox="0 0 24 24"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></symbol>
+    <symbol id="icon-hand" viewBox="0 0 24 24"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
     <symbol id="icon-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
     <symbol id="icon-swipe" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></symbol>
   </svg>
@@ -632,6 +633,17 @@
           </div>
         </section>
 
+      </div>
+
+      <!-- Bulle d'aide "comment tourner les pages" : affichée par book.js à la
+           première visite, retirée dès que le lecteur touche le livre -->
+      <div class="book-tip" id="book-tip" role="note" hidden>
+        <svg class="icon book-tip__hand"><use href="#icon-hand"/></svg>
+        <p class="book-tip__text book-tip__text--touch">Glissez du doigt pour tourner les pages</p>
+        <p class="book-tip__text book-tip__text--mouse">
+          Cliquez sur une page pour la tourner
+          <small>ou utilisez les flèches ← → du clavier</small>
+        </p>
       </div>
 
       <!-- Grande flèche droite (ordinateur) -->

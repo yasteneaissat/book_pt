@@ -291,6 +291,61 @@ function toggleTheme() {
 }
 
 
+/* ---------- Bulle d'aide "comment tourner les pages" ---------- */
+// Affichée à la première visite. Elle disparaît dès que le lecteur touche le livre,
+// tourne une page ou appuie sur une flèche, et ne revient plus ensuite.
+// (Si elle s'efface seule sans avoir servi, elle reviendra à la prochaine visite.)
+
+const tip = document.getElementById('book-tip');
+const TIP_SEEN = 'book-tip-seen';
+let tipTimer = 0;
+
+function showTip() {
+  try {
+    if (localStorage.getItem(TIP_SEEN)) return;
+  } catch (error) {
+    // Pas de mémoire disponible : on montre la bulle
+  }
+
+  tip.hidden = false;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => tip.classList.add('is-visible'));
+  });
+
+  bookWrapper.addEventListener('pointerdown', tipUsed, { once: true });
+  document.addEventListener('keydown', tipUsedByKey);
+  tipTimer = setTimeout(hideTip, 9000);
+}
+
+function tipUsedByKey(event) {
+  if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) tipUsed();
+}
+
+function tipUsed() {
+  try {
+    localStorage.setItem(TIP_SEEN, 'true');
+  } catch (error) {
+    // Pas de mémoire disponible : sans importance
+  }
+  hideTip();
+}
+
+function hideTip() {
+  clearTimeout(tipTimer);
+  bookWrapper.removeEventListener('pointerdown', tipUsed);
+  document.removeEventListener('keydown', tipUsedByKey);
+  if (tip.hidden || !tip.classList.contains('is-visible')) {
+    tip.hidden = true;
+    return;
+  }
+  tip.classList.remove('is-visible');
+  // Fin du fondu, puis on la retire de l'affichage (l'animation de la main s'arrête)
+  setTimeout(() => {
+    tip.hidden = true;
+  }, 400);
+}
+
+
 /* ---------- Message en bas de l'écran ---------- */
 
 let messageTimer = null;
@@ -563,6 +618,8 @@ function startBook() {
 
     // Page lâchée au doigt / à la souris : le son n'a pas encore été joué
     const turnedByReader = flipState() !== 'read';
+    // Une page a tourné (livre, boutons, sommaire...) : la bulle d'aide a servi
+    if (!tip.hidden) tipUsed();
     currentPage = page;
     if (turnedByReader && !soundPlayed) {
       soundPlayed = true;
@@ -597,6 +654,9 @@ function startBook() {
   updateInterface();
   pages[currentPage].dataset.warm = 'true';
   queueWarmUp(currentPage);
+
+  // Bulle d'aide, une fois le livre posé
+  setTimeout(showTip, 700);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => bookWrapper.classList.remove('no-animation'));
