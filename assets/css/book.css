@@ -7,7 +7,7 @@
     et leur rotation en style "inline" (on ne règle donc ici ni position ni taille) ;
   - leur ajoute les classes .stf__item, .--left / .--right (côté de la reliure)
     et .--soft / .--hard (page souple ou couverture rigide) ;
-  - dessine elle-même les ombres (.stf__outerShadow, .stf__innerShadow...).
+  - gère les ombres StPageFlip, désactivées dans book.js pour alléger le rendu.
 
   - Ordinateur : double page.
   - Téléphone : une page à la fois.
@@ -225,20 +225,6 @@
   .book-wrapper.is-closed-front .book-arrow--next,
   .book-wrapper.is-closed-back .book-arrow--next {
     transform: translateX(calc(var(--book-width) * -.25));
-  }
-
-  /* Épaisseur du livre : fines tranches de papier sur les bords extérieurs.
-     .--right = page de droite (ancienne .page--front), .--left = page de gauche. */
-  .page.--right {
-    box-shadow:
-      1px 0 0 #E8E8E2, 2px 0 0 #D6D6CF, 3px 0 0 #E8E8E2, 4px 0 0 #D2D2CA,
-      0 14px 30px -12px rgba(0, 0, 0, .35);
-  }
-
-  .page.--left {
-    box-shadow:
-      -1px 0 0 #E8E8E2, -2px 0 0 #D6D6CF, -3px 0 0 #E8E8E2, -4px 0 0 #D2D2CA,
-      0 14px 30px -12px rgba(0, 0, 0, .35);
   }
 
   .stage__hint {

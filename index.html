@@ -59,14 +59,15 @@
   <link rel="stylesheet" href="assets/css/variables.css?v=10">
   <link rel="stylesheet" href="assets/css/base.css?v=10">
   <link rel="stylesheet" href="assets/css/header.css?v=10">
-  <link rel="stylesheet" href="assets/css/book.css?v=11">
+  <link rel="stylesheet" href="assets/css/book.css?v=12">
   <link rel="stylesheet" href="assets/css/navigation.css?v=10">
   <link rel="stylesheet" href="assets/css/footer.css?v=10">
   <link rel="stylesheet" href="assets/css/print.css?v=10" media="print">
 
   <!--
     Moteur de pages StPageFlip (page-flip 2.0.7, licence MIT, sans dépendance) : pliage souple,
-    coins qui se soulèvent, ombres dynamiques. Version figée + empreinte "integrity" :
+    pliage souple. Le soulèvement des coins et les ombres dynamiques sont désactivés
+    pour alléger le rendu. Version figée + empreinte "integrity" :
     le navigateur refuse le fichier s'il a été modifié sur le CDN.
     Si le CDN ne répond pas, book.js charge la copie locale assets/js/vendor/page-flip.browser.js.
     "defer" : les deux scripts s'exécutent dans l'ordre, une fois la page lue.
@@ -74,7 +75,7 @@
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
           integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW"
           crossorigin="anonymous" defer></script>
-  <script src="assets/js/book.js?v=12" defer></script>
+  <script src="assets/js/book.js?v=13" defer></script>
 </head>
 <body>
 
@@ -198,7 +199,7 @@
         <section class="page page--blank page--full-photo" aria-label="Page 1">
           <div class="page__content">
             <figure class="full-photo">
-              <img src="assets/img/projets/perspective-parc.webp" fetchpriority="high" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
+              <img src="assets/img/projets/perspective-parc.webp" decoding="async" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
               <figcaption class="full-photo__caption">Perspective d'ambiance</figcaption>
             </figure>
             <span class="page__number">01</span>
@@ -210,15 +211,15 @@
           <div class="page__content">
             <div class="gallery">
               <figure class="gallery__item gallery__item--wide">
-                <img src="assets/img/projets/vue-aerienne-parc.webp" fetchpriority="high" alt="Vue aérienne d'un parc avec allées, pelouses et aires de jeux" width="698" height="1000">
+                <img src="assets/img/projets/vue-aerienne-parc.webp" decoding="async" alt="Vue aérienne d'un parc avec allées, pelouses et aires de jeux" width="698" height="1000">
                 <figcaption>Vue aérienne</figcaption>
               </figure>
               <figure class="gallery__item">
-                <img src="assets/img/projets/plan-masse.webp" fetchpriority="high" alt="Plan masse coloré d'un jardin avec aires de jeux et plantations" width="736" height="1227">
+                <img src="assets/img/projets/plan-masse.webp" decoding="async" alt="Plan masse coloré d'un jardin avec aires de jeux et plantations" width="736" height="1227">
                 <figcaption>Plan masse</figcaption>
               </figure>
               <figure class="gallery__item gallery__item--whole">
-                <img src="assets/img/projets/coupes-1-200.webp" fetchpriority="high" alt="Coupes paysagères au 1/200 montrant les berges et les plantations" width="736" height="845">
+                <img src="assets/img/projets/coupes-1-200.webp" decoding="async" alt="Coupes paysagères au 1/200 montrant les berges et les plantations" width="736" height="845">
                 <figcaption>Coupes 1/200</figcaption>
               </figure>
             </div>
@@ -231,11 +232,11 @@
           <div class="page__content">
             <div class="gallery gallery--stack">
               <figure class="gallery__item">
-                <img src="assets/img/projets/rooftop-maquette-3d.webp" alt="Maquette 3D d'un rooftop avec dallage, jardinières et pergola" width="736" height="476">
+                <img src="assets/img/projets/rooftop-maquette-3d.webp" decoding="async" alt="Maquette 3D d'un rooftop avec dallage, jardinières et pergola" width="736" height="476">
                 <figcaption>Maquette 3D</figcaption>
               </figure>
               <figure class="gallery__item">
-                <img src="assets/img/projets/rooftop-rendu.webp" alt="Rendu d'un toit-terrasse avec pergola en bois, pelouse et salons d'extérieur" width="640" height="384">
+                <img src="assets/img/projets/rooftop-rendu.webp" decoding="async" alt="Rendu d'un toit-terrasse avec pergola en bois, pelouse et salons d'extérieur" width="640" height="384">
                 <figcaption>Rendu d'ambiance</figcaption>
               </figure>
             </div>
@@ -247,11 +248,11 @@
         <section class="page page--blank page--full-photo" aria-label="Page 4">
           <div class="page__content">
             <figure class="full-photo">
-              <img src="assets/img/projets/rooftop-vue-ensemble.webp" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
+              <img src="assets/img/projets/rooftop-vue-ensemble.webp" decoding="async" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
               <figcaption class="full-photo__caption">Rooftop — vue d'ensemble</figcaption>
             </figure>
             <figure class="photo-inset">
-              <img src="assets/img/projets/rooftop-terrasse-bois.webp" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
+              <img src="assets/img/projets/rooftop-terrasse-bois.webp" decoding="async" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
               <figcaption>Terrasse bois</figcaption>
             </figure>
             <span class="page__number">04</span>

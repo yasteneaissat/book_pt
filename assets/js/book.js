@@ -2,8 +2,7 @@
   Le livre : tourner les pages, sommaire, son, plein écran, mode sombre.
 
   Les pages tournent avec la bibliothèque StPageFlip (page-flip, sans dépendance) :
-  pliage souple en diagonale, page qui suit la souris / le doigt depuis les coins,
-  coin qui se soulève au survol et ombres dynamiques.
+  pliage souple en diagonale et page qui suit la souris / le doigt depuis les coins.
 
   - Sur ordinateur, on avance d'une double page à la fois (orientation "landscape").
   - Sur téléphone, on avance d'une page à la fois (orientation "portrait").
@@ -40,18 +39,6 @@ let pageFlip = null;   // le moteur StPageFlip (créé au démarrage)
 let currentPage = 0;   // page affichée (sur ordinateur : page de gauche de la double page)
 let soundOn = true;
 let edgeSettleTimer = 0;
-
-
-/* ---------- Photos prêtes à l'avance ----------
-   Le navigateur ne prépare (décode) une photo qu'au moment où elle devient
-   visible : pendant que la page tourne, on la verrait arriver en retard.
-   On demande donc de les préparer toutes dès l'ouverture du book. */
-
-book.querySelectorAll('img').forEach(img => {
-  img.decode().catch(() => {
-    // Image introuvable ou format non pris en charge : on l'ignore
-  });
-});
 
 
 /* ---------- Petits calculs ---------- */
@@ -465,7 +452,7 @@ function startBook() {
 
     // Rendu "Issuu"
     drawShadow: false,
-    showPageCorners: true,    // coin qui se soulève au survol de la souris
+    showPageCorners: false,
     flippingTime: REDUCED_MOTION.matches ? FLIP_TIME / 2 : FLIP_TIME,
 
     // Gestes
