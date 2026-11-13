@@ -219,42 +219,19 @@ function openSummary(open) {
 }
 
 
-/* ---------- Son de page (généré, pas de fichier audio) ---------- */
+/* ---------- Son de page ---------- */
 
 let audio = null;
 
 function playPageSound() {
   if (!soundOn) return;
 
-  try {
-    audio = audio || new AudioContext();
-
-    // Un petit bruit blanc qui s'éteint vite = froissement de papier
-    const duration = 0.13;
-    const buffer = audio.createBuffer(1, audio.sampleRate * duration, audio.sampleRate);
-    const samples = buffer.getChannelData(0);
-    for (let i = 0; i < samples.length; i++) {
-      samples[i] = (Math.random() * 2 - 1) * Math.exp(-3.6 * i / samples.length);
-    }
-
-    const noise = audio.createBufferSource();
-    noise.buffer = buffer;
-
-    const filter = audio.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(500, audio.currentTime);
-    filter.frequency.exponentialRampToValueAtTime(180, audio.currentTime + duration);
-
-    const volume = audio.createGain();
-    volume.gain.setValueAtTime(0.001, audio.currentTime);
-    volume.gain.linearRampToValueAtTime(0.045, audio.currentTime + 0.015);
-    volume.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + duration);
-
-    noise.connect(filter).connect(volume).connect(audio.destination);
-    noise.start();
-  } catch (error) {
-    // Le navigateur bloque le son : on continue sans
-  }
+  audio = audio || new Audio('assets/audio/page-turn.mp3');
+  audio.volume = 0.25;
+  audio.currentTime = 0;
+  audio.play().catch(error => {
+    console.warn('Le son de page n’a pas pu être lu.', error);
+  });
 }
 
 function toggleSound(button) {
