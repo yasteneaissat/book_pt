@@ -407,6 +407,7 @@ function warmUpNextPage() {
   // Boîte invisible, à la taille d'une page, derrière tout le reste
   if (!warmUpBox) {
     warmUpBox = document.createElement('div');
+    warmUpBox.className = 'warm-up'; // masquée à l'impression (print.css)
     warmUpBox.setAttribute('aria-hidden', 'true');
     warmUpBox.inert = true;
     warmUpBox.style.cssText = 'position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden; opacity: .001; pointer-events: none; contain: strict;';

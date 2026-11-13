@@ -46,6 +46,7 @@ body {
 .toast,
 .footer,
 .book-arrow,
+.warm-up,
 .cover__open,
 .back-cover__restart {
   display: none !important;
