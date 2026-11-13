@@ -47,9 +47,25 @@
   gap: 8px;
 }
 
-/* Sur mobile, les boutons n'affichent que l'icône */
+/* Sur mobile, les boutons n'affichent que l'icône (boutons carrés,
+   pour que le logo et les 4 boutons tiennent sur un petit téléphone) */
 .header__buttons .button__label {
   display: none;
+}
+
+@media (max-width: 639px) {
+  .header__logo {
+    width: 140px;
+  }
+
+  .header__buttons {
+    gap: 6px;
+  }
+
+  .header__buttons .button {
+    width: 36px;
+    padding: 0;
+  }
 }
 
 

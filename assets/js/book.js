@@ -355,6 +355,85 @@ document.addEventListener('keydown', event => {
 });
 
 
+/* ---------- Pages prêtes avant d'être tournées ---------- */
+
+/*
+  La première fois qu'une page s'affiche, le navigateur doit la préparer (polices,
+  textes, photos) : jusqu'à 1/4 de seconde sur un appareil moyen. Comme StPageFlip
+  n'affiche une page qu'au moment où elle tourne, ce travail tombait pendant
+  l'animation et la page de droite semblait "se recharger" (2e passage : fluide).
+
+  Solution : pendant que le lecteur regarde une page, on prépare les suivantes en
+  arrière-plan, une par une, avec une copie invisible de chaque page.
+  (Garder les vraies pages affichées mais cachées a été testé : 2 à 3 fois plus
+  lent, car le moteur réécrit le style de chaque page à chaque image.)
+*/
+
+const warmUpQueue = [];
+let warmUpBox = null;
+let warmUpScheduled = false;
+
+// Ordre de préparation : d'abord les pages qui suivent la page en cours, puis les précédentes
+function queueWarmUp(fromPage) {
+  warmUpQueue.length = 0;
+  for (let index = fromPage + 1; index <= lastPage; index++) warmUpQueue.push(index);
+  for (let index = fromPage - 1; index >= 0; index--) warmUpQueue.push(index);
+  scheduleWarmUp();
+}
+
+function scheduleWarmUp() {
+  if (warmUpScheduled) return;
+  warmUpScheduled = true;
+  const later = window.requestIdleCallback || (callback => setTimeout(callback, 200));
+  later(warmUpNextPage, { timeout: 1500 });
+}
+
+function warmUpNextPage() {
+  warmUpScheduled = false;
+
+  // Une page est en train de tourner : on attend qu'elle soit posée
+  if (flipState() !== 'read') {
+    scheduleWarmUp();
+    return;
+  }
+
+  let index;
+  do {
+    index = warmUpQueue.shift();
+  } while (index !== undefined && pages[index].dataset.warm);
+  if (index === undefined) return;
+  pages[index].dataset.warm = 'true';
+
+  // Boîte invisible, à la taille d'une page, derrière tout le reste
+  if (!warmUpBox) {
+    warmUpBox = document.createElement('div');
+    warmUpBox.setAttribute('aria-hidden', 'true');
+    warmUpBox.inert = true;
+    warmUpBox.style.cssText = 'position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden; opacity: .001; pointer-events: none; contain: strict;';
+    document.body.append(warmUpBox);
+  }
+  const rect = pageFlip.getRender().getRect();
+  warmUpBox.style.width = rect.pageWidth + 'px';
+  warmUpBox.style.height = rect.height + 'px';
+
+  const copy = pages[index].cloneNode(true);
+  copy.removeAttribute('aria-label');
+  copy.style.cssText = `display: block; position: absolute; left: 0; top: 0; width: ${rect.pageWidth}px; height: ${rect.height}px;`;
+  warmUpBox.append(copy);
+  copy.querySelectorAll('img').forEach(image => {
+    if (image.decode) image.decode().catch(() => {});
+  });
+
+  // On laisse le navigateur la dessiner une fois, puis on la retire et on passe à la suivante
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      copy.remove();
+      scheduleWarmUp();
+    });
+  });
+}
+
+
 /* ---------- Taille et orientation du livre ---------- */
 
 let layoutPending = false;
@@ -490,6 +569,7 @@ function startBook() {
     }
 
     updateInterface();
+    queueWarmUp(page);
 
     if (edgeTurn) {
       edgeSettleTimer = setTimeout(() => {
@@ -514,6 +594,8 @@ function startBook() {
 
   currentPage = pageFlip.getCurrentPageIndex();
   updateInterface();
+  pages[currentPage].dataset.warm = 'true';
+  queueWarmUp(currentPage);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => bookWrapper.classList.remove('no-animation'));

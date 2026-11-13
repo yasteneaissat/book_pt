@@ -58,11 +58,11 @@
   <!-- Styles (?v=10 : augmenter ce numéro après une modification pour que les navigateurs rechargent les fichiers) -->
   <link rel="stylesheet" href="assets/css/variables.css?v=10">
   <link rel="stylesheet" href="assets/css/base.css?v=10">
-  <link rel="stylesheet" href="assets/css/header.css?v=10">
-  <link rel="stylesheet" href="assets/css/book.css?v=39">
+  <link rel="stylesheet" href="assets/css/header.css?v=11">
+  <link rel="stylesheet" href="assets/css/book.css?v=40">
   <link rel="stylesheet" href="assets/css/navigation.css?v=10">
   <link rel="stylesheet" href="assets/css/footer.css?v=10">
-  <link rel="stylesheet" href="assets/css/print.css?v=10" media="print">
+  <link rel="stylesheet" href="assets/css/print.css?v=12" media="print">
 
   <!--
     Moteur de pages StPageFlip (page-flip 2.0.7, licence MIT, sans dépendance) : pliage souple,
@@ -75,7 +75,7 @@
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
           integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW"
           crossorigin="anonymous" defer></script>
-  <script src="assets/js/book.js?v=15" defer></script>
+  <script src="assets/js/book.js?v=17" defer></script>
 </head>
 <body>
 
@@ -95,6 +95,7 @@
     <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
     <symbol id="icon-shrink" viewBox="0 0 24 24"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
     <symbol id="icon-swipe" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></symbol>
   </svg>
 
@@ -124,6 +125,12 @@
           <svg class="icon icon--small"><use href="#icon-grid"/></svg>
           <span class="button__label">Sommaire</span>
         </button>
+
+        <!-- PDF fabriqué par outils/generer-pdf.py : le relancer après chaque modification du book -->
+        <a class="button button--outline" href="assets/pdf/book-paris-terrasse.pdf" download="Book-Paris-Terrasse.pdf" aria-label="Télécharger le book en PDF" title="Télécharger le book en PDF">
+          <svg class="icon icon--small"><use href="#icon-download"/></svg>
+          <span class="button__label">PDF</span>
+        </a>
 
         <a class="button" href="mailto:contact@paristerrasse.fr" aria-label="Contact">
           <svg class="icon icon--small"><use href="#icon-mail"/></svg>
@@ -191,7 +198,7 @@
         <section class="page page--blank page--full-photo" aria-label="Page 1">
           <div class="page__content">
             <figure class="full-photo">
-              <img src="assets/img/projets/perspective-parc.webp" decoding="async" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
+              <img src="assets/img/projets/perspective-parc.webp" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
               <figcaption class="full-photo__caption">Perspective d'ambiance</figcaption>
             </figure>
             <span class="page__number">01</span>
@@ -203,15 +210,15 @@
           <div class="page__content">
             <div class="gallery">
               <figure class="gallery__item gallery__item--wide">
-                <img src="assets/img/projets/vue-aerienne-parc.webp" decoding="async" alt="Vue aérienne d'un parc avec allées, pelouses et aires de jeux" width="698" height="1000">
+                <img src="assets/img/projets/vue-aerienne-parc.webp" alt="Vue aérienne d'un parc avec allées, pelouses et aires de jeux" width="698" height="1000">
                 <figcaption>Vue aérienne</figcaption>
               </figure>
               <figure class="gallery__item">
-                <img src="assets/img/projets/plan-masse.webp" decoding="async" alt="Plan masse coloré d'un jardin avec aires de jeux et plantations" width="736" height="1227">
+                <img src="assets/img/projets/plan-masse.webp" alt="Plan masse coloré d'un jardin avec aires de jeux et plantations" width="736" height="1227">
                 <figcaption>Plan masse</figcaption>
               </figure>
               <figure class="gallery__item gallery__item--whole">
-                <img src="assets/img/projets/coupes-1-200.webp" decoding="async" alt="Coupes paysagères au 1/200 montrant les berges et les plantations" width="736" height="845">
+                <img src="assets/img/projets/coupes-1-200.webp" alt="Coupes paysagères au 1/200 montrant les berges et les plantations" width="736" height="845">
                 <figcaption>Coupes 1/200</figcaption>
               </figure>
             </div>
@@ -224,11 +231,11 @@
           <div class="page__content">
             <div class="gallery gallery--stack">
               <figure class="gallery__item">
-                <img src="assets/img/projets/rooftop-maquette-3d.webp" decoding="async" alt="Maquette 3D d'un rooftop avec dallage, jardinières et pergola" width="736" height="476">
+                <img src="assets/img/projets/rooftop-maquette-3d.webp" alt="Maquette 3D d'un rooftop avec dallage, jardinières et pergola" width="736" height="476">
                 <figcaption>Maquette 3D</figcaption>
               </figure>
               <figure class="gallery__item">
-                <img src="assets/img/projets/rooftop-rendu.webp" decoding="async" alt="Rendu d'un toit-terrasse avec pergola en bois, pelouse et salons d'extérieur" width="640" height="384">
+                <img src="assets/img/projets/rooftop-rendu.webp" alt="Rendu d'un toit-terrasse avec pergola en bois, pelouse et salons d'extérieur" width="640" height="384">
                 <figcaption>Rendu d'ambiance</figcaption>
               </figure>
             </div>
@@ -240,11 +247,11 @@
         <section class="page page--blank page--full-photo" aria-label="Page 4">
           <div class="page__content">
             <figure class="full-photo">
-              <img src="assets/img/projets/rooftop-vue-ensemble.webp" decoding="async" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
+              <img src="assets/img/projets/rooftop-vue-ensemble.webp" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
               <figcaption class="full-photo__caption">Rooftop — vue d'ensemble</figcaption>
             </figure>
             <figure class="photo-inset">
-              <img src="assets/img/projets/rooftop-terrasse-bois.webp" decoding="async" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
+              <img src="assets/img/projets/rooftop-terrasse-bois.webp" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
               <figcaption>Terrasse bois</figcaption>
             </figure>
             <span class="page__number">04</span>
@@ -255,7 +262,7 @@
         <section class="page page--blank page--paper" aria-label="Page 5">
           <div class="page__content">
             <figure class="full-photo">
-              <img src="assets/img/projets/promenade-paysagere.jpg" decoding="async" alt="Visualisation 3D d'une promenade paysagère avec massifs fleuris, chemin sinueux et pavillon" width="736" height="920">
+              <img src="assets/img/projets/promenade-paysagere.jpg" alt="Visualisation 3D d'une promenade paysagère avec massifs fleuris, chemin sinueux et pavillon" width="736" height="920">
               <figcaption class="full-photo__caption">Perspective 3D — promenade paysagère</figcaption>
             </figure>
             <span class="page__number">05</span>
@@ -283,14 +290,14 @@
             <p class="sketch-page__eyebrow">Carnet d'étude · 01</p>
             <h2 class="sketch-page__title">Du trait<br>au paysage</h2>
             <figure class="sketch-item sketch-item--plan">
-              <img src="assets/img/projets/plan-masse.webp" decoding="async" alt="Plan paysager dessiné à la main, avec tracé des allées, plantations et espaces de vie" width="736" height="1227">
+              <img src="assets/img/projets/plan-masse.webp" alt="Plan paysager dessiné à la main, avec tracé des allées, plantations et espaces de vie" width="736" height="1227">
               <figcaption>Plan masse · tracé & plantations</figcaption>
             </figure>
             <figure class="sketch-item sketch-item--plan-detail" aria-hidden="true">
-              <img src="assets/img/projets/plan-masse.webp" decoding="async" alt="" width="736" height="1227">
+              <img src="assets/img/projets/plan-masse.webp" alt="" width="736" height="1227">
             </figure>
             <figure class="sketch-item sketch-item--coupe">
-              <img src="assets/img/projets/coupes-1-200.webp" decoding="async" alt="Croquis en coupe montrant les niveaux, les cheminements et les plantations du jardin" width="736" height="845">
+              <img src="assets/img/projets/coupes-1-200.webp" alt="Croquis en coupe montrant les niveaux, les cheminements et les plantations du jardin" width="736" height="845">
               <figcaption>Coupe paysagère · 1/200</figcaption>
             </figure>
             <span class="sketch-note sketch-note--left">premières<br>intentions</span>
@@ -304,11 +311,11 @@
             <p class="sketch-page__eyebrow">Carnet d'étude · 02</p>
             <p class="sketch-page__intro">Composer avec<br>les lignes du lieu</p>
             <figure class="sketch-item sketch-item--sections">
-              <img src="assets/img/projets/coupes-1-200.webp" decoding="async" alt="Série de coupes dessinées à la main, illustrant les transitions entre les espaces du jardin" width="736" height="845">
+              <img src="assets/img/projets/coupes-1-200.webp" alt="Série de coupes dessinées à la main, illustrant les transitions entre les espaces du jardin" width="736" height="845">
               <figcaption>Relief · usages · végétation</figcaption>
             </figure>
             <figure class="sketch-item sketch-item--plan-detail-right" aria-hidden="true">
-              <img src="assets/img/projets/plan-masse.webp" decoding="async" alt="" width="736" height="1227">
+              <img src="assets/img/projets/plan-masse.webp" alt="" width="736" height="1227">
             </figure>
             <span class="sketch-note sketch-note--right">un jardin<br>à parcourir</span>
             <span class="sketch-page__stamp">Étude<br>paysagère</span>
@@ -319,7 +326,7 @@
         <!-- Page 9 : jardin fleuri en pleine page -->
         <section class="page page--blank page--paper page--flora page--flora-full" aria-label="Page 9 — Jardin fleuri en pleine page">
           <div class="page__content flora-page">
-            <img class="flora-page__art" src="assets/img/projets/jardin-fleuri-plein-page.webp" decoding="async" alt="Jardin fleuri autour d'un grand arbre, avec massifs de vivaces, pivoines, tulipes et un banc" width="736" height="1349">
+            <img class="flora-page__art" src="assets/img/projets/jardin-fleuri-plein-page.webp" alt="Jardin fleuri autour d'un grand arbre, avec massifs de vivaces, pivoines, tulipes et un banc" width="736" height="1349">
             <span class="flora-page__full-caption">Un jardin à vivre au fil des saisons</span>
             <span class="page__number">09</span>
           </div>
@@ -329,11 +336,11 @@
         <section class="page page--blank page--paper page--flora page--flora-stack" aria-label="Page 10 — Deux ambiances de massifs fleuris">
           <div class="page__content flora-page">
             <figure class="flora-stack__photo flora-stack__photo--banner">
-              <img src="assets/img/projets/massif-fleurs-banniere.webp" decoding="async" alt="Bandeau de fleurs aux teintes rose, corail, mauve et crème dans un massif dense" width="735" height="412">
+              <img src="assets/img/projets/massif-fleurs-banniere.webp" alt="Bandeau de fleurs aux teintes rose, corail, mauve et crème dans un massif dense" width="735" height="412">
               <figcaption>Une palette de floraisons</figcaption>
             </figure>
             <figure class="flora-stack__photo flora-stack__photo--lower">
-              <img src="assets/img/projets/massif-pivoines.webp" decoding="async" alt="Massif de pivoines roses et blanches associé à des alliums violets dans un jardin" width="735" height="401">
+              <img src="assets/img/projets/massif-pivoines.webp" alt="Massif de pivoines roses et blanches associé à des alliums violets dans un jardin" width="735" height="401">
               <figcaption>Pivoines · alliums · vivaces</figcaption>
             </figure>
             <span class="page__number">10</span>
@@ -350,11 +357,11 @@
             </header>
             <div class="before-after-gallery">
               <figure class="before-after-photo">
-                <img src="assets/img/projets/avant-terrasse-01.webp" decoding="async" alt="Terrasse sur toit avant aménagement, avec muret en pierre et vue sur Paris" width="768" height="1024">
+                <img src="assets/img/projets/avant-terrasse-01.webp" alt="Terrasse sur toit avant aménagement, avec muret en pierre et vue sur Paris" width="768" height="1024">
                 <figcaption>Un espace brut</figcaption>
               </figure>
               <figure class="before-after-photo">
-                <img src="assets/img/projets/avant-terrasse-02.webp" decoding="async" alt="Vue large de la terrasse avant transformation, avec sol et banquettes en pierre" width="1024" height="768">
+                <img src="assets/img/projets/avant-terrasse-02.webp" alt="Vue large de la terrasse avant transformation, avec sol et banquettes en pierre" width="1024" height="768">
                 <figcaption>Avant les travaux</figcaption>
               </figure>
             </div>
@@ -371,11 +378,11 @@
             </header>
             <div class="before-after-gallery">
               <figure class="before-after-photo">
-                <img src="assets/img/projets/apres-terrasse-01.webp" decoding="async" alt="Terrasse aménagée avec jacuzzi, platelage bois et plantes grimpantes" width="768" height="1024">
+                <img src="assets/img/projets/apres-terrasse-01.webp" alt="Terrasse aménagée avec jacuzzi, platelage bois et plantes grimpantes" width="768" height="1024">
                 <figcaption>Un nouvel espace de détente</figcaption>
               </figure>
               <figure class="before-after-photo">
-                <img src="assets/img/projets/apres-terrasse-02.webp" decoding="async" alt="Terrasse rénovée avec habillage et marches en bois, jardinières et vue sur Paris" width="1024" height="768">
+                <img src="assets/img/projets/apres-terrasse-02.webp" alt="Terrasse rénovée avec habillage et marches en bois, jardinières et vue sur Paris" width="1024" height="768">
                 <figcaption>Après aménagement</figcaption>
               </figure>
             </div>
@@ -395,11 +402,11 @@
                 <h3>Douglas</h3>
                 <div class="wood-gallery__images">
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/douglas-detail.webp" decoding="async" alt="Détail des lames et du veinage du Douglas" width="600" height="600">
+                    <img src="assets/img/bois/douglas-detail.webp" alt="Détail des lames et du veinage du Douglas" width="600" height="600">
                     <figcaption>Le bois en détail</figcaption>
                   </figure>
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/douglas-terrasse.webp" decoding="async" alt="Vue d'ensemble d'une terrasse en Douglas avec mobilier et garde-corps en métal" width="1151" height="768">
+                    <img src="assets/img/bois/douglas-terrasse.webp" alt="Vue d'ensemble d'une terrasse en Douglas avec mobilier et garde-corps en métal" width="1151" height="768">
                     <figcaption>Vue d'ensemble</figcaption>
                   </figure>
                 </div>
@@ -408,11 +415,11 @@
                 <h3>Cumaru</h3>
                 <div class="wood-gallery__images">
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/cumaru.webp" decoding="async" alt="Détail des lames et du veinage du Cumaru" width="1400" height="1000">
+                    <img src="assets/img/bois/cumaru.webp" alt="Détail des lames et du veinage du Cumaru" width="1400" height="1000">
                     <figcaption>Le bois en détail</figcaption>
                   </figure>
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/cumaru-terrasse.webp" decoding="async" alt="Vue d'ensemble d'une terrasse en Cumaru, avec espace repas et plantations" width="1400" height="1680">
+                    <img src="assets/img/bois/cumaru-terrasse.webp" alt="Vue d'ensemble d'une terrasse en Cumaru, avec espace repas et plantations" width="1400" height="1680">
                     <figcaption>Vue d'ensemble</figcaption>
                   </figure>
                 </div>
@@ -433,11 +440,11 @@
                 <h3>Bambou</h3>
                 <div class="wood-gallery__images">
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/bambou-detail.webp" decoding="async" alt="Détail de la texture du bambou" width="1075" height="768">
+                    <img src="assets/img/bois/bambou-detail.webp" alt="Détail de la texture du bambou" width="1075" height="768">
                     <figcaption>Le bois en détail</figcaption>
                   </figure>
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/bambou-terrasse.webp" decoding="async" alt="Vue d'ensemble d'une terrasse en bambou autour d'une piscine" width="768" height="768">
+                    <img src="assets/img/bois/bambou-terrasse.webp" alt="Vue d'ensemble d'une terrasse en bambou autour d'une piscine" width="768" height="768">
                     <figcaption>Vue d'ensemble</figcaption>
                   </figure>
                 </div>
@@ -446,11 +453,11 @@
                 <h3>Pin marron</h3>
                 <div class="wood-gallery__images">
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/pin-marron.webp" decoding="async" alt="Détail de la texture du pin marron" width="700" height="700">
+                    <img src="assets/img/bois/pin-marron.webp" alt="Détail de la texture du pin marron" width="700" height="700">
                     <figcaption>Le bois en détail</figcaption>
                   </figure>
                   <figure class="wood-gallery__photo">
-                    <img src="assets/img/bois/pin-marron-terrasse.webp" decoding="async" alt="Vue d'ensemble d'une terrasse en pin marron, avec banquette et clôture en bois" width="1024" height="768">
+                    <img src="assets/img/bois/pin-marron-terrasse.webp" alt="Vue d'ensemble d'une terrasse en pin marron, avec banquette et clôture en bois" width="1024" height="768">
                     <figcaption>Vue d'ensemble</figcaption>
                   </figure>
                 </div>
@@ -470,27 +477,27 @@
             </header>
             <div class="team-grid">
               <figure class="team-card">
-                <img src="assets/img/equipe/timothee-bonnet.webp" decoding="async" alt="Portrait de Timothée Bonnet" width="450" height="450">
+                <img src="assets/img/equipe/timothee-bonnet.webp" alt="Portrait de Timothée Bonnet" width="450" height="450">
                 <figcaption><strong>Timothée Bonnet</strong><span>Gérant</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/cecile-ambert.webp" decoding="async" alt="Portrait de Cécile Ambert" width="451" height="451">
+                <img src="assets/img/equipe/cecile-ambert.webp" alt="Portrait de Cécile Ambert" width="451" height="451">
                 <figcaption><strong>Cécile Ambert</strong><span>Responsable du bureau d’études</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/florian-gars.webp" decoding="async" alt="Portrait de Florian Gars" width="451" height="451">
+                <img src="assets/img/equipe/florian-gars.webp" alt="Portrait de Florian Gars" width="451" height="451">
                 <figcaption><strong>Florian Gars</strong><span>Chef de chantier</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/audrey-samson.webp" decoding="async" alt="Portrait d’Audrey Samson" width="451" height="451">
+                <img src="assets/img/equipe/audrey-samson.webp" alt="Portrait d’Audrey Samson" width="451" height="451">
                 <figcaption><strong>Audrey Samson</strong><span>Conceptrice paysagiste</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/christophe-monsire.webp" decoding="async" alt="Portrait de Christophe Monsire" width="450" height="451">
+                <img src="assets/img/equipe/christophe-monsire.webp" alt="Portrait de Christophe Monsire" width="450" height="451">
                 <figcaption><strong>Christophe Monsire</strong><span>Chef de chantier</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/maelle-gars.webp" decoding="async" alt="Portrait de Maëlle Gars" width="451" height="451">
+                <img src="assets/img/equipe/maelle-gars.webp" alt="Portrait de Maëlle Gars" width="451" height="451">
                 <figcaption><strong>Maëlle Gars</strong><span>Assistante de direction</span></figcaption>
               </figure>
             </div>
@@ -507,23 +514,23 @@
             </header>
             <div class="team-grid">
               <figure class="team-card">
-                <img src="assets/img/equipe/hugo-pre.webp" decoding="async" alt="Portrait de Hugo Pré" width="452" height="451">
+                <img src="assets/img/equipe/hugo-pre.webp" alt="Portrait de Hugo Pré" width="452" height="451">
                 <figcaption><strong>Hugo Pré</strong><span>Chef d’équipe</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/pauline-pages.webp" decoding="async" alt="Portrait de Pauline Pages" width="451" height="451">
+                <img src="assets/img/equipe/pauline-pages.webp" alt="Portrait de Pauline Pages" width="451" height="451">
                 <figcaption><strong>Pauline Pages</strong><span>Apprentie ouvrière paysagiste</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/dylan-kostreski.webp" decoding="async" alt="Portrait de Dylan Kostreski" width="451" height="451">
+                <img src="assets/img/equipe/dylan-kostreski.webp" alt="Portrait de Dylan Kostreski" width="451" height="451">
                 <figcaption><strong>Dylan Kostreski</strong><span>Ouvrier paysagiste</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/maxime-cormier.webp" decoding="async" alt="Portrait de Maxime Cormier" width="450" height="450">
+                <img src="assets/img/equipe/maxime-cormier.webp" alt="Portrait de Maxime Cormier" width="450" height="450">
                 <figcaption><strong>Maxime Cormier</strong><span>Apprenti ouvrier paysagiste</span></figcaption>
               </figure>
               <figure class="team-card">
-                <img src="assets/img/equipe/vigo.webp" decoding="async" alt="Portrait de Vigo, mascotte de l’équipe" width="451" height="451">
+                <img src="assets/img/equipe/vigo.webp" alt="Portrait de Vigo, mascotte de l’équipe" width="451" height="451">
                 <figcaption><strong>Vigo</strong><span>Chief Happiness Officer</span></figcaption>
               </figure>
             </div>

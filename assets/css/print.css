@@ -1,17 +1,43 @@
 /*
   Impression (ou "Enregistrer en PDF") : toutes les pages à la suite,
-  une page du book par feuille.
+  une page du book par feuille, sans marge, au format des pages (3/4).
+  Sert aussi à fabriquer le PDF téléchargeable : voir generer-pdf.bat.
 
   StPageFlip place les pages dans .stf__wrapper > .stf__block et leur donne
   des styles "inline" (taille, découpe, rotation, display: none) :
   on les annule ici avec !important.
 */
 
-body {
-  display: block;
-  background: #FFFFFF;
+@page {
+  size: 150mm 200mm;
+  margin: 0;
 }
 
+html,
+body {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.stage {
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.book-wrapper {
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header,
+.skip-link,
+.stage__title,
 .header__buttons,
 .stage__hint,
 .toolbar,
@@ -19,7 +45,9 @@ body {
 .overlay,
 .toast,
 .footer,
-.book-arrow {
+.book-arrow,
+.cover__open,
+.back-cover__restart {
   display: none !important;
 }
 
@@ -52,11 +80,16 @@ body {
   display: block !important;
   left: auto !important;
   top: auto !important;
-  width: auto !important;
-  height: 100vh !important;
+  width: 150mm !important;
+  height: 200mm !important;
   transform: none !important;
   clip-path: none !important;
   -webkit-clip-path: none !important;
   box-shadow: none !important;
   break-after: page;
+  break-inside: avoid;
+}
+
+.page:last-child {
+  break-after: auto;
 }
