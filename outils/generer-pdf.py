@@ -72,8 +72,29 @@ def compresser(source, destination):
     (doc.rewrite_images de PyMuPDF est évité : il casse les fonds de Chrome.)
     """
     doc = pymupdf.open(source)
+    # Masques de transparence (bords fondus des images WebP) : à laisser intacts,
+    # sinon ils sont convertis en couleur et l'image s'affiche rayée.
+    masques = set()
+    for xref in range(1, doc.xref_length()):
+        kind, value = doc.xref_get_key(xref, "SMask")
+        if kind == "xref":
+            masques.add(int(value.split()[0]))
+
     for xref in range(1, doc.xref_length()):
         if doc.xref_get_key(xref, "Subtype")[1] != "/Image":
+            continue
+        if xref in masques:
+            # Masque : compressé en JPEG, mais en niveaux de gris (jamais en couleur)
+            masque = pymupdf.Pixmap(doc, xref)
+            if masque.n != 1 or masque.width * masque.height < 40000:
+                continue
+            jpeg = masque.tobytes("jpeg", jpg_quality=QUALITE_JPEG)
+            if len(jpeg) < len(doc.xref_stream_raw(xref)):
+                doc.update_stream(xref, jpeg, compress=False)
+                doc.xref_set_key(xref, "Filter", "/DCTDecode")
+                doc.xref_set_key(xref, "DecodeParms", "null")
+                doc.xref_set_key(xref, "ColorSpace", "/DeviceGray")
+                doc.xref_set_key(xref, "BitsPerComponent", "8")
             continue
         if doc.xref_get_key(xref, "Filter")[1] == "/DCTDecode":  # déjà en JPEG
             continue

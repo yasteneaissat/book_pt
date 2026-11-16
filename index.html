@@ -50,7 +50,7 @@
   <!-- Polices du site Paris Terrasse -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap">
 
   <!-- Thème clair / sombre (avant le CSS pour éviter un flash) -->
   <script src="assets/js/theme.js?v=10"></script>
@@ -59,10 +59,10 @@
   <link rel="stylesheet" href="assets/css/variables.css?v=10">
   <link rel="stylesheet" href="assets/css/base.css?v=10">
   <link rel="stylesheet" href="assets/css/header.css?v=11">
-  <link rel="stylesheet" href="assets/css/book.css?v=43">
-  <link rel="stylesheet" href="assets/css/navigation.css?v=11">
+  <link rel="stylesheet" href="assets/css/book.css?v=63">
+  <link rel="stylesheet" href="assets/css/navigation.css?v=12">
   <link rel="stylesheet" href="assets/css/footer.css?v=10">
-  <link rel="stylesheet" href="assets/css/print.css?v=13" media="print">
+  <link rel="stylesheet" href="assets/css/print.css?v=14" media="print">
 
   <!--
     Moteur de pages StPageFlip (page-flip 2.0.7, licence MIT, sans dépendance) : pliage souple,
@@ -75,7 +75,7 @@
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
           integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW"
           crossorigin="anonymous" defer></script>
-  <script src="assets/js/book.js?v=19" defer></script>
+  <script src="assets/js/book.js?v=20" defer></script>
 </head>
 <body>
 
@@ -195,19 +195,74 @@
           </div>
         </section>
 
-        <!-- Page 1 : une grande image en pleine page -->
-        <section class="page page--blank page--full-photo" aria-label="Page 1">
+        <!-- Page 1 : qui sommes-nous ? Présentation de l'entreprise -->
+        <section class="page page--blank page--paper page--about" aria-label="Page 1 — Qui sommes-nous ?">
+          <div class="page__content about-page">
+            <header class="about-page__heading">
+              <p class="about-page__eyebrow">Paris Terrasse · Paysagiste</p>
+              <hr class="cover__line">
+              <h2 class="about-page__title">Qui sommes-nous&nbsp;?</h2>
+            </header>
+
+            <p class="about-page__lead">Depuis plus de dix ans, Paris Terrasse imagine, réalise et entretient des espaces extérieurs à Paris et en Île-de-France&nbsp;: terrasses, balcons, rooftops et jardins.</p>
+
+            <p class="about-page__text">Notre bureau d’études, nos architectes et nos équipes de chantier travaillent main dans la main. Du premier croquis à la visualisation 3D, puis jusqu’au dernier coup de sécateur, un seul interlocuteur vous accompagne.</p>
+
+            <p class="about-page__text">Chaque projet est unique&nbsp;: nous composons avec la lumière, la vue, les contraintes du bâti et vos envies pour créer un lieu de vie qui vous ressemble, au fil des saisons.</p>
+
+            <ul class="about-page__facts">
+              <li><strong>10&nbsp;ans+</strong><span>d’expérience</span></li>
+              <li><strong>3D</strong><span>bureau d’études intégré</span></li>
+              <li><strong>A → Z</strong><span>conception, réalisation, entretien</span></li>
+            </ul>
+            <span class="page__number">01</span>
+          </div>
+        </section>
+
+        <!-- Page 2 : sommaire du book (chaque ligne ouvre la page indiquée) -->
+        <section class="page page--blank page--paper page--toc" aria-label="Page 2 — Sommaire">
+          <div class="page__content toc-page">
+            <header class="about-page__heading">
+              <p class="about-page__eyebrow">Au fil des pages</p>
+              <hr class="cover__line">
+              <h2 class="about-page__title">Sommaire</h2>
+            </header>
+
+            <ol class="toc">
+              <li><button type="button" class="toc__link" data-goto="1"><span class="toc__name">Qui sommes-nous&nbsp;?</span><span class="toc__page">01</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="3"><span class="toc__name">Perspectives &amp; plans</span><span class="toc__page">03</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="5"><span class="toc__name">Rooftop, de la 3D au réel</span><span class="toc__page">05</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="7"><span class="toc__name">Conception 3D</span><span class="toc__page">07</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="9"><span class="toc__name">Carnet d’étude</span><span class="toc__page">09</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="11"><span class="toc__name">Jardins fleuris</span><span class="toc__page">11</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="13"><span class="toc__name">Avant / Après</span><span class="toc__page">13</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="15"><span class="toc__name">Projet Sanchez · le carnet</span><span class="toc__page">15</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="17"><span class="toc__name">Projet Sanchez · la planche</span><span class="toc__page">17</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="19"><span class="toc__name">Projet Sanchez · l’aquarelle</span><span class="toc__page">19</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="21"><span class="toc__name">Terrasse avec spa, vue sur Paris</span><span class="toc__page">21</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="23"><span class="toc__name">Projet Sanchez · planche artistique</span><span class="toc__page">23</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="25"><span class="toc__name">Promenade paysagère</span><span class="toc__page">25</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="27"><span class="toc__name">Certains de nos bois</span><span class="toc__page">27</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="29"><span class="toc__name">Avis clients</span><span class="toc__page">29</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="31"><span class="toc__name">Votre projet</span><span class="toc__page">31</span></button></li>
+            </ol>
+            <span class="page__number">02</span>
+          </div>
+        </section>
+
+        <!-- Page 3 : une grande image en pleine page -->
+        <section class="page page--blank page--full-photo" aria-label="Page 3">
           <div class="page__content">
             <figure class="full-photo">
               <img src="assets/img/projets/perspective-parc.webp" alt="Perspective dessinée d'une promenade paysagère avec massifs fleuris et pavillon vitré" width="736" height="1308">
               <figcaption class="full-photo__caption">Perspective d'ambiance</figcaption>
             </figure>
-            <span class="page__number">01</span>
+            <span class="page__number">03</span>
           </div>
         </section>
 
-        <!-- Page 2 : une image large en haut, deux en bas -->
-        <section class="page page--blank" aria-label="Page 2">
+        <!-- Page 4 : une image large en haut, deux en bas -->
+        <section class="page page--blank" aria-label="Page 4">
           <div class="page__content">
             <div class="gallery">
               <figure class="gallery__item gallery__item--wide">
@@ -223,12 +278,12 @@
                 <figcaption>Coupes 1/200</figcaption>
               </figure>
             </div>
-            <span class="page__number">02</span>
+            <span class="page__number">04</span>
           </div>
         </section>
 
-        <!-- Page 3 : deux images horizontales l'une sous l'autre -->
-        <section class="page page--blank" aria-label="Page 3">
+        <!-- Page 5 : deux images horizontales l'une sous l'autre -->
+        <section class="page page--blank" aria-label="Page 5">
           <div class="page__content">
             <div class="gallery gallery--stack">
               <figure class="gallery__item">
@@ -240,12 +295,12 @@
                 <figcaption>Rendu d'ambiance</figcaption>
               </figure>
             </div>
-            <span class="page__number">03</span>
+            <span class="page__number">05</span>
           </div>
         </section>
 
-        <!-- Page 4 : une image en pleine page + une vignette par-dessus -->
-        <section class="page page--blank page--full-photo" aria-label="Page 4">
+        <!-- Page 6 : une image en pleine page + une vignette par-dessus -->
+        <section class="page page--blank page--full-photo" aria-label="Page 6">
           <div class="page__content">
             <figure class="full-photo">
               <img src="assets/img/projets/rooftop-vue-ensemble.webp" alt="Rooftop en ville avec pergola, oliviers en bacs, salons et allée en bois" width="736" height="920">
@@ -255,23 +310,23 @@
               <img src="assets/img/projets/rooftop-terrasse-bois.webp" alt="Terrasse en bois sur un toit avec jardinières en acier corten et graminées" width="564" height="846">
               <figcaption>Terrasse bois</figcaption>
             </figure>
-            <span class="page__number">04</span>
+            <span class="page__number">06</span>
           </div>
         </section>
 
-        <!-- Page 5 : visualisation 3D du projet -->
-        <section class="page page--blank page--paper" aria-label="Page 5">
+        <!-- Page 7 : visualisation 3D du projet -->
+        <section class="page page--blank page--paper" aria-label="Page 7">
           <div class="page__content">
             <figure class="full-photo">
               <img src="assets/img/projets/promenade-paysagere.jpg" alt="Visualisation 3D d'une promenade paysagère avec massifs fleuris, chemin sinueux et pavillon" width="736" height="920">
               <figcaption class="full-photo__caption">Perspective 3D — promenade paysagère</figcaption>
             </figure>
-            <span class="page__number">05</span>
+            <span class="page__number">07</span>
           </div>
         </section>
 
-        <!-- Page 6 : composition éditoriale en vis-à-vis -->
-        <section class="page page--blank page--paper" aria-label="Page 6">
+        <!-- Page 8 : composition éditoriale en vis-à-vis -->
+        <section class="page page--blank page--paper" aria-label="Page 8">
           <div class="page__content editorial-page">
             <div class="editorial-page__intro">
               <p class="editorial-page__eyebrow">Conception 3D</p>
@@ -281,12 +336,12 @@
               <h2 class="editorial-page__title">Un bureau d’études engagé</h2>
               <p class="editorial-page__text">Notre bureau d’études et nos architectes travaillent ensemble pour vous proposer des devis adaptés, concevoir votre projet, le présenter clairement et en réaliser une visualisation 3D fidèle à vos envies.</p>
             </div>
-            <span class="page__number">06</span>
+            <span class="page__number">08</span>
           </div>
         </section>
 
-        <!-- Page 7 : planche de croquis paysagers -->
-        <section class="page page--blank page--paper page--sketchbook" aria-label="Page 7 — Carnet de croquis paysagers">
+        <!-- Page 9 : planche de croquis paysagers -->
+        <section class="page page--blank page--paper page--sketchbook" aria-label="Page 9 — Carnet de croquis paysagers">
           <div class="page__content sketch-page">
             <p class="sketch-page__eyebrow">Carnet d'étude · 01</p>
             <h2 class="sketch-page__title">Du trait<br>au paysage</h2>
@@ -302,12 +357,12 @@
               <figcaption>Coupe paysagère · 1/200</figcaption>
             </figure>
             <span class="sketch-note sketch-note--left">premières<br>intentions</span>
-            <span class="page__number">07</span>
+            <span class="page__number">09</span>
           </div>
         </section>
 
-        <!-- Page 8 : détails dessinés et variations de niveaux -->
-        <section class="page page--blank page--paper page--sketchbook" aria-label="Page 8 — Détails du projet paysager">
+        <!-- Page 10 : détails dessinés et variations de niveaux -->
+        <section class="page page--blank page--paper page--sketchbook" aria-label="Page 10 — Détails du projet paysager">
           <div class="page__content sketch-page sketch-page--continuation">
             <p class="sketch-page__eyebrow">Carnet d'étude · 02</p>
             <p class="sketch-page__intro">Composer avec<br>les lignes du lieu</p>
@@ -320,21 +375,21 @@
             </figure>
             <span class="sketch-note sketch-note--right">un jardin<br>à parcourir</span>
             <span class="sketch-page__stamp">Étude<br>paysagère</span>
-            <span class="page__number">08</span>
+            <span class="page__number">10</span>
           </div>
         </section>
 
-        <!-- Page 9 : jardin fleuri en pleine page -->
-        <section class="page page--blank page--paper page--flora page--flora-full" aria-label="Page 9 — Jardin fleuri en pleine page">
+        <!-- Page 11 : jardin fleuri en pleine page -->
+        <section class="page page--blank page--paper page--flora page--flora-full" aria-label="Page 11 — Jardin fleuri en pleine page">
           <div class="page__content flora-page">
             <img class="flora-page__art" src="assets/img/projets/jardin-fleuri-plein-page.webp" alt="Jardin fleuri autour d'un grand arbre, avec massifs de vivaces, pivoines, tulipes et un banc" width="736" height="1349">
             <span class="flora-page__full-caption">Un jardin à vivre au fil des saisons</span>
-            <span class="page__number">09</span>
+            <span class="page__number">11</span>
           </div>
         </section>
 
-        <!-- Page 10 : deux photos de massifs en bandes horizontales -->
-        <section class="page page--blank page--paper page--flora page--flora-stack" aria-label="Page 10 — Deux ambiances de massifs fleuris">
+        <!-- Page 12 : deux photos de massifs en bandes horizontales -->
+        <section class="page page--blank page--paper page--flora page--flora-stack" aria-label="Page 12 — Deux ambiances de massifs fleuris">
           <div class="page__content flora-page">
             <figure class="flora-stack__photo flora-stack__photo--banner">
               <img src="assets/img/projets/massif-fleurs-banniere.webp" alt="Bandeau de fleurs aux teintes rose, corail, mauve et crème dans un massif dense" width="735" height="412">
@@ -344,12 +399,12 @@
               <img src="assets/img/projets/massif-pivoines.webp" alt="Massif de pivoines roses et blanches associé à des alliums violets dans un jardin" width="735" height="401">
               <figcaption>Pivoines · alliums · vivaces</figcaption>
             </figure>
-            <span class="page__number">10</span>
+            <span class="page__number">12</span>
           </div>
         </section>
 
-        <!-- Pages 11–12 : transformation d'une terrasse, avant et après -->
-        <section class="page page--blank page--paper page--before-after" aria-label="Page 11 — La terrasse avant les travaux">
+        <!-- Pages 13–14 : transformation d'une terrasse, avant et après -->
+        <section class="page page--blank page--paper page--before-after" aria-label="Page 13 — La terrasse avant les travaux">
           <div class="page__content before-after-page">
             <header class="before-after-page__heading">
               <p class="before-after-page__eyebrow">Le projet en images</p>
@@ -366,11 +421,11 @@
                 <figcaption>Avant les travaux</figcaption>
               </figure>
             </div>
-            <span class="page__number">11</span>
+            <span class="page__number">13</span>
           </div>
         </section>
 
-        <section class="page page--blank page--paper page--before-after" aria-label="Page 12 — La terrasse après les travaux">
+        <section class="page page--blank page--paper page--before-after" aria-label="Page 14 — La terrasse après les travaux">
           <div class="page__content before-after-page">
             <header class="before-after-page__heading">
               <p class="before-after-page__eyebrow">Le projet en images</p>
@@ -387,12 +442,583 @@
                 <figcaption>Après aménagement</figcaption>
               </figure>
             </div>
-            <span class="page__number">12</span>
+            <span class="page__number">14</span>
           </div>
         </section>
 
-        <!-- Pages 13–14 : quatre essences, deux par page -->
-        <section class="page page--blank page--paper page--wood" aria-label="Page 13 — Certains de nos bois, Douglas et Cumaru">
+        <!-- Pages 15–16 : projet Sanchez, façon carnet d'artiste.
+             À gauche : la vue du projet scotchée, annotée à la main, avec matières et plantes.
+             À droite : le résultat, deux grands tirages scotchés.
+             Les flèches sont dessinées dans le <svg class="carnet-ink"> (repère 300 × 400 = la page).
+             Pour un autre projet : copier les deux <section>, changer textes, images et flèches. -->
+        <section class="page page--blank page--paper page--carnet" aria-label="Page 15 — Projet Sanchez, carnet de projet">
+          <div class="page__content carnet">
+            <span class="carnet-wash carnet-wash--green" aria-hidden="true"></span>
+            <span class="carnet-wash carnet-wash--sand" aria-hidden="true"></span>
+
+            <p class="carnet__kicker">carnet de projet · n°01</p>
+            <h2 class="carnet__title">Projet Sanchez</h2>
+            <p class="carnet__concept">un patio intime&nbsp;: du bois, du vert… et de l’eau au milieu&nbsp;!</p>
+
+            <figure class="carnet-print carnet-print--plan">
+              <img src="assets/img/projets/sanchez/sanchez-vue-plongeante.webp" alt="Vue plongeante 3D de la terrasse : banquette en L, bassin ouvert, bardage bois, mur vert bouteille, miroirs et plantes retombantes" width="850" height="756">
+              <span class="carnet-tape carnet-tape--tl" aria-hidden="true"></span>
+              <span class="carnet-tape carnet-tape--br" aria-hidden="true"></span>
+            </figure>
+
+            <!-- Notes manuscrites autour de la vue -->
+            <p class="carnet-note" style="--top: 28%; --left: 2%; --turn: -6deg">bardage<br>composite frêne</p>
+            <p class="carnet-note" style="--top: 48%; --left: 2%; --turn: 4deg">miroir arche</p>
+            <p class="carnet-note" style="--top: 21.5%; --left: 80%; --turn: 5deg">mur vert<br>bouteille <small>RAL 6007</small></p>
+            <p class="carnet-note" style="--top: 54%; --left: 82%; --turn: -4deg">bassin<br>ouvert&nbsp;!</p>
+            <p class="carnet-note" style="--top: 70.5%; --left: 24%; --turn: -2deg">banquette en L, sur mesure</p>
+
+            <!-- Flèches dessinées à la main -->
+            <svg class="carnet-ink" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M40 138 C 52 133, 66 140, 76 150 M66 148 L76 150 L73 140"/>
+              <path d="M36 202 C 55 206, 72 197, 85 184 M75 185 L85 184 L83 194"/>
+              <path d="M244 110 C 225 108, 200 118, 188 134 M189 124 L188 134 L197 130"/>
+              <path d="M246 232 C 228 242, 198 240, 180 226 M190 225 L180 226 L186 234"/>
+              <path d="M96 280 C 98 250, 110 210, 128 182 M120 188 L128 182 L130 192"/>
+            </svg>
+
+            <!-- Matières et plantes, posées en vrac en bas de page -->
+            <div class="carnet-samples">
+              <div class="carnet-samples__group">
+                <p class="carnet-samples__title">les matières</p>
+                <figure class="carnet-sample carnet-sample--wood" style="--turn: 4deg">
+                  <img src="assets/img/projets/sanchez/millboard-frene.webp" alt="" width="240" height="240">
+                  <span class="carnet-tape" aria-hidden="true"></span>
+                  <figcaption>frêne</figcaption>
+                </figure>
+                <figure class="carnet-sample carnet-sample--dab" style="--dab: #2F3B2A; --turn: -8deg">
+                  <i></i><figcaption>vert bouteille</figcaption>
+                </figure>
+                <figure class="carnet-sample carnet-sample--dab" style="--dab: #C7714D; --turn: 6deg">
+                  <i></i><figcaption>terre cuite</figcaption>
+                </figure>
+              </div>
+              <div class="carnet-samples__group">
+                <p class="carnet-samples__title">les plantes</p>
+                <figure class="carnet-sample carnet-sample--plant" style="--turn: -5deg">
+                  <img src="assets/img/projets/sanchez/pervenche.webp" alt="" width="240" height="240"><figcaption>pervenche</figcaption>
+                </figure>
+                <figure class="carnet-sample carnet-sample--plant" style="--turn: 4deg">
+                  <img src="assets/img/projets/sanchez/fougere.webp" alt="" width="240" height="240"><figcaption>fougère</figcaption>
+                </figure>
+                <figure class="carnet-sample carnet-sample--plant" style="--turn: -3deg">
+                  <img src="assets/img/projets/sanchez/heuchere.webp" alt="" width="240" height="240"><figcaption>heuchère</figcaption>
+                </figure>
+                <figure class="carnet-sample carnet-sample--plant" style="--turn: 6deg">
+                  <img src="assets/img/projets/sanchez/rhododendron.webp" alt="" width="240" height="240"><figcaption>rhodo</figcaption>
+                </figure>
+              </div>
+            </div>
+            <span class="page__number">15</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--carnet" aria-label="Page 16 — Projet Sanchez, le résultat">
+          <div class="page__content carnet">
+            <span class="carnet-wash carnet-wash--sand carnet-wash--right" aria-hidden="true"></span>
+
+            <figure class="carnet-print carnet-print--result-a">
+              <img src="assets/img/projets/sanchez/sanchez-rendu-banquette.webp" alt="Rendu 3D de la terrasse : banquette en L avec coussins, mur vert bouteille, miroir rond et bardage bois" width="1344" height="756">
+              <span class="carnet-tape carnet-tape--top" aria-hidden="true"></span>
+            </figure>
+            <p class="carnet-note carnet-note--caption" style="--top: 43%; --left: 44%; --turn: -3deg">côté banquette, à l’ombre du mur vert</p>
+
+            <figure class="carnet-print carnet-print--result-b">
+              <img src="assets/img/projets/sanchez/sanchez-rendu-bassin.webp" alt="Rendu 3D de la terrasse : bassin ouvert intégré au platelage bois, entre la banquette et le pare-vue" width="1344" height="756">
+              <span class="carnet-tape carnet-tape--tl" aria-hidden="true"></span>
+              <span class="carnet-tape carnet-tape--br" aria-hidden="true"></span>
+            </figure>
+
+            <p class="carnet-result">le résultat</p>
+            <p class="carnet-note carnet-note--caption" style="--top: 89%; --left: 52%; --turn: 3deg">…et le bassin, pour l’été&nbsp;!</p>
+            <span class="page__number">16</span>
+          </div>
+        </section>
+
+        <!-- Pages 17–18 : projet Sanchez, version planche d'architecte (même projet que 15–16).
+             À gauche la planche du projet, à droite le rendu final.
+             Les repères numérotés se placent sur la vue avec --x / --y (en % de l'image). -->
+        <section class="page page--blank page--paper page--board" aria-label="Page 17 — Projet Sanchez, planche du projet">
+          <div class="page__content board-page">
+            <header class="board-page__top">
+              <p class="board-page__brand"><span>Paris Terrasse</span>Paysagistes</p>
+              <p class="board-page__ref">Projet 01</p>
+            </header>
+
+            <div class="board-page__intro">
+              <p class="board-page__project">Projet&nbsp;: Sanchez</p>
+              <h2 class="board-page__title">Terrasse avec piscine ouverte</h2>
+              <p class="board-page__concept"><strong>Concept&nbsp;:</strong> un patio intime et végétal, où le bois, le vert bouteille et l’eau composent un coin de fraîcheur en pleine ville.</p>
+            </div>
+
+            <figure class="board-plan">
+              <div class="board-plan__view">
+                <img src="assets/img/projets/sanchez/sanchez-vue-plongeante.webp" alt="Vue plongeante 3D de la terrasse : banquette en L, bassin ouvert, bardage bois, mur vert bouteille, miroirs et plantes retombantes" width="850" height="756">
+                <span class="board-plan__mark" style="--x: 12%; --y: 40%">1</span>
+                <span class="board-plan__mark" style="--x: 19%; --y: 56%">2</span>
+                <span class="board-plan__mark" style="--x: 72%; --y: 26%">3</span>
+                <span class="board-plan__mark" style="--x: 49%; --y: 28%">4</span>
+                <span class="board-plan__mark" style="--x: 41%; --y: 48%">5</span>
+                <span class="board-plan__mark" style="--x: 61%; --y: 74%">6</span>
+                <span class="board-plan__mark" style="--x: 25%; --y: 22%">7</span>
+                <span class="board-plan__mark" style="--x: 52%; --y: 7%">8</span>
+              </div>
+              <figcaption>Vue plongeante 3D</figcaption>
+            </figure>
+
+            <ol class="board-legend">
+              <li>Bardage composite Millboard, finition frêne</li>
+              <li>Miroir arche · l75 × H120</li>
+              <li>Mur peint RAL 6007 vert bouteille</li>
+              <li>Miroir rond extérieur · l105 × H105</li>
+              <li>Banquette en L sur mesure</li>
+              <li>Bassin ouvert intégré au platelage</li>
+              <li>Balconnières Fiberstone · 60×20×20</li>
+              <li>Plantes retombantes en jardinières</li>
+            </ol>
+
+            <div class="board-palettes">
+              <div>
+                <p class="board-palettes__title">Palette matériaux</p>
+                <ul class="board-swatches">
+                  <li><img src="assets/img/projets/sanchez/millboard-frene.webp" alt="" width="240" height="240">Composite frêne</li>
+                  <li><i style="--swatch: #2F3B2A"></i>RAL 6007</li>
+                  <li><i style="--swatch: #C7714D"></i>Terre cuite</li>
+                  <li><i style="--swatch: #232323"></i>Métal noir</li>
+                </ul>
+              </div>
+              <div>
+                <p class="board-palettes__title">Palette végétale</p>
+                <ul class="board-swatches board-swatches--round">
+                  <li><img src="assets/img/projets/sanchez/pervenche.webp" alt="" width="240" height="240">Pervenche</li>
+                  <li><img src="assets/img/projets/sanchez/fougere.webp" alt="" width="240" height="240">Fougère</li>
+                  <li><img src="assets/img/projets/sanchez/heuchere.webp" alt="" width="240" height="240">Heuchère</li>
+                  <li><img src="assets/img/projets/sanchez/rhododendron.webp" alt="" width="240" height="240">Rhododendron</li>
+                </ul>
+              </div>
+            </div>
+            <span class="page__number">17</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--result" aria-label="Page 18 — Projet Sanchez, le rendu final">
+          <div class="page__content result-page">
+            <figure class="result-photo">
+              <img src="assets/img/projets/sanchez/sanchez-rendu-banquette.webp" alt="Rendu 3D de la terrasse : banquette en L avec coussins, mur vert bouteille, miroir rond et bardage bois" width="1344" height="756">
+              <figcaption>La banquette &amp; le mur végétal</figcaption>
+            </figure>
+            <figure class="result-photo">
+              <img src="assets/img/projets/sanchez/sanchez-rendu-bassin.webp" alt="Rendu 3D de la terrasse : bassin ouvert intégré au platelage bois, entre la banquette et le pare-vue" width="1344" height="756">
+              <figcaption>Le bassin ouvert</figcaption>
+            </figure>
+            <p class="result-page__tag">Le résultat · Projet Sanchez</p>
+            <span class="page__number">18</span>
+          </div>
+        </section>
+
+        <!-- Pages 19–20 : projet Sanchez, version planche aquarelle « pleine d'infos ».
+             Gauche : grande vue annotée (traits de rappel), puis vue de dessus, perspective, inspiration.
+             Droite : seconde vue, palettes, notes, mobilier et déco (références du dossier client).
+             Traits de rappel : <svg class="aqua-lines"> (repère 300 × 400 = la page). -->
+        <section class="page page--blank page--paper page--aqua page--sanchez-board" aria-label="Page 19 — Projet Sanchez, planche aquarelle">
+          <div class="page__content aqua">
+            <header class="aqua-head">
+              <p class="aqua-head__brand"><span>Paris Terrasse</span>Paysagistes</p>
+              <p class="aqua-head__project">Projet&nbsp;: Sanchez · terrasse avec piscine ouverte</p>
+              <p class="aqua-head__concept"><strong>Concept&nbsp;:</strong><br>un patio intime en ville, entre bois chaleureux, feuillages et fraîcheur de l’eau.</p>
+            </header>
+
+            <figure class="aqua-detail">
+              <p class="aqua-label">Détail · éclairage</p>
+              <img src="assets/img/projets/sanchez/produit-applique.webp" alt="Applique murale d’extérieur Chandan, en bois et verre cannelé" width="105" height="260">
+              <ul class="aqua-detail__notes">
+                <li>applique murale d’extérieur</li>
+                <li>modèle Chandan</li>
+                <li>bois &amp; verre cannelé</li>
+                <li>lumière douce, le soir</li>
+              </ul>
+            </figure>
+
+            <img class="aqua-hero" src="assets/img/projets/sanchez/aqua-banquette.webp" alt="Vue aquarellée de la terrasse : banquette en L, mur vert bouteille, miroir rond, miroir arche, bardage bois et plantes retombantes" width="1100" height="619">
+
+            <!-- Annotations : en haut et en bas de la grande vue -->
+            <p class="aqua-note aqua-note--sanchez-top" style="--top: 24.5%; --left: 3%">bardage frêne</p>
+            <p class="aqua-note aqua-note--sanchez-top" style="--top: 24.5%; --left: 28%">mur vert · RAL 6007</p>
+            <p class="aqua-note aqua-note--sanchez-top" style="--top: 24.5%; --left: 52%">plantes retombantes</p>
+            <p class="aqua-note aqua-note--sanchez-top" style="--top: 24.5%; --left: 76%">miroir rond · 105 × 105</p>
+            <p class="aqua-note" style="--top: 71.5%; --left: 3%">miroir arche l75&nbsp;×&nbsp;H120</p>
+            <p class="aqua-note" style="--top: 71.5%; --left: 35%">banquette en L sur mesure</p>
+            <p class="aqua-note" style="--top: 71.5%; --left: 66%">bassin ouvert intégré au platelage</p>
+
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M42 108 L36 147"/><circle cx="36" cy="147" r="1.6"/>
+              <path d="M117 108 L120 160"/><circle cx="120" cy="160" r="1.6"/>
+              <path d="M189 108 L178 140"/><circle cx="178" cy="140" r="1.6"/>
+              <path d="M261 108 L140 172"/><circle cx="140" cy="172" r="1.6"/>
+              <path d="M42 282 L33 179"/><circle cx="33" cy="179" r="1.6"/>
+              <path d="M138 282 L140 205"/><circle cx="140" cy="205" r="1.6"/>
+              <path d="M231 282 L188 242"/><circle cx="188" cy="242" r="1.6"/>
+            </svg>
+
+            <!-- Trois petites vues en bas de page -->
+            <div class="aqua-views">
+              <figure class="aqua-view aqua-view--plan">
+                <figcaption class="aqua-label">Vue de dessus</figcaption>
+                <img src="assets/img/projets/sanchez/aqua-dessus.webp" alt="Vue de dessus aquarellée de la terrasse" width="700" height="623">
+              </figure>
+              <figure class="aqua-view aqua-view--wide">
+                <figcaption class="aqua-label">Perspective</figcaption>
+                <img src="assets/img/projets/sanchez/aqua-perspective.webp" alt="Perspective aquarellée de la terrasse vue depuis l’entrée" width="700" height="394">
+              </figure>
+              <figure class="aqua-view aqua-view--inspi">
+                <figcaption class="aqua-label">Inspiration</figcaption>
+                <img src="assets/img/projets/sanchez/aqua-inspi-bassin.webp" alt="Inspiration du moodboard : bassin encastré dans une terrasse en bois" width="400" height="400">
+              </figure>
+            </div>
+            <span class="page__number">19</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--aqua page--sanchez-products" aria-label="Page 20 — Projet Sanchez, matières, plantes et mobilier">
+          <div class="page__content aqua">
+            <img class="aqua-hero aqua-hero--right" src="assets/img/projets/sanchez/aqua-bassin.webp" alt="Vue aquarellée de la terrasse côté bassin, entre la banquette et le pare-vue en bois" width="1100" height="619">
+            <p class="aqua-note aqua-note--hand" style="--top: 37.5%; --left: 64%">l’eau au cœur du patio</p>
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M200 150 C 196 140, 192 132, 186 126"/><circle cx="186" cy="126" r="1.6"/>
+            </svg>
+
+            <div class="aqua-info">
+              <div class="aqua-palettes">
+                <p class="aqua-label">Palette matériaux</p>
+                <ul class="aqua-swatches">
+                  <li><img src="assets/img/projets/sanchez/millboard-frene.webp" alt="" width="240" height="240">composite frêne</li>
+                  <li><i style="--swatch: #2F3B2A"></i>RAL 6007</li>
+                  <li><i style="--swatch: #C7714D"></i>terre cuite</li>
+                  <li><i style="--swatch: #E9E4DA"></i>tissu écru</li>
+                  <li><i style="--swatch: #2A2A2A"></i>métal noir</li>
+                </ul>
+
+                <p class="aqua-label">Palette végétale</p>
+                <ul class="aqua-swatches aqua-swatches--plants">
+                  <li><img src="assets/img/projets/sanchez/aqua-pervenche.webp" alt="" width="220" height="220">pervenche</li>
+                  <li><img src="assets/img/projets/sanchez/aqua-fougere.webp" alt="" width="220" height="220">fougère</li>
+                  <li><img src="assets/img/projets/sanchez/aqua-heuchere.webp" alt="" width="220" height="220">heuchère</li>
+                  <li><img src="assets/img/projets/sanchez/aqua-rhododendron.webp" alt="" width="220" height="220">rhododendron</li>
+                  <li><img src="assets/img/projets/sanchez/aqua-azalee.webp" alt="" width="220" height="220">azalée</li>
+                </ul>
+              </div>
+
+              <div class="aqua-notes">
+                <p class="aqua-label">Notes</p>
+                <ul>
+                  <li>ambiance patio, intime &amp; végétale</li>
+                  <li>bassin ouvert, au ras du platelage</li>
+                  <li>miroirs pour agrandir l’espace</li>
+                  <li>plantes qui retombent des balconnières</li>
+                  <li>lumière douce pour le soir</li>
+                  <li>peu d’entretien</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="aqua-products">
+              <p class="aqua-label">Mobilier, bacs &amp; déco</p>
+              <ul>
+                <li><img src="assets/img/projets/sanchez/produit-miroir-arche.webp" alt="" width="165" height="260"><strong>Miroir arche</strong>l75 × H120</li>
+                <li><img src="assets/img/projets/sanchez/produit-miroir-rond.webp" alt="" width="220" height="220"><strong>Miroir rond</strong>l105 × H105</li>
+                <li><img src="assets/img/projets/sanchez/produit-applique.webp" alt="" width="105" height="260"><strong>Applique</strong>Chandan</li>
+                <li><img src="assets/img/projets/sanchez/produit-balconniere.webp" alt="" width="260" height="210"><strong>Balconnière</strong>Fiberstone 60×20×20</li>
+                <li><img src="assets/img/projets/sanchez/produit-pot.webp" alt="" width="193" height="201"><strong>Pots</strong>terre cuite</li>
+                <li><img src="assets/img/projets/sanchez/produit-tabourets.webp" alt="" width="128" height="260"><strong>Tabourets</strong>gigognes</li>
+              </ul>
+            </div>
+
+            <p class="aqua-foot">Paris Terrasse · projet Sanchez · images non exhaustives</p>
+            <span class="page__number">20</span>
+          </div>
+        </section>
+
+        <!-- Pages 21–22 : terrasse avec spa, vue sur Paris — planche aquarelle (même gabarit que 19–20).
+             Les positions des vues se règlent avec style="top / left / width" ; traits : repère 300 × 400. -->
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 21 — Terrasse avec spa, planche aquarelle">
+          <div class="page__content aqua">
+            <header class="aqua-head">
+              <p class="aqua-head__brand"><span>Paris Terrasse</span>Paysagistes</p>
+              <p class="aqua-head__project">Projet&nbsp;: terrasse avec spa · vue sur Paris</p>
+              <p class="aqua-head__concept"><strong>Concept&nbsp;:</strong><br>transformer un toit brut en salon d’extérieur chaleureux, face aux toits de Paris.</p>
+            </header>
+
+            <figure class="aqua-detail">
+              <p class="aqua-label">Détail · le spa</p>
+              <img src="assets/img/projets/aquarelle/spa-detail-bassin.webp" alt="Détail aquarellé du spa encastré dans le platelage bois" width="360" height="281">
+              <ul class="aqua-detail__notes">
+                <li>spa encastré</li>
+                <li>au ras du platelage</li>
+                <li>habillage bois</li>
+                <li>la vue en prime</li>
+              </ul>
+            </figure>
+
+            <img class="aqua-hero" style="top: 22%; left: 25%; width: 50%" src="assets/img/projets/aquarelle/spa-apres-01.webp" alt="Vue aquarellée de la terrasse après travaux : spa encastré, platelage bois, tasseaux et plantes grimpantes" width="700" height="933">
+
+            <p class="aqua-note" style="--top: 24.5%; --left: 3%">tasseaux bois verticaux</p>
+            <p class="aqua-note" style="--top: 36.5%; --left: 3%">plantes grimpantes</p>
+            <p class="aqua-note" style="--top: 47.5%; --left: 3%">jardinières blanches</p>
+            <p class="aqua-note" style="--top: 61.5%; --left: 3%">platelage bois</p>
+            <p class="aqua-note" style="--top: 23.5%; --left: 79%">cache-clim habillé</p>
+            <p class="aqua-note" style="--top: 39.5%; --left: 79%">baie vitrée</p>
+            <p class="aqua-note" style="--top: 57.5%; --left: 79%">spa encastré</p>
+
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M66 104 L112 118"/><circle cx="112" cy="118" r="1.6"/>
+              <path d="M62 151 L138 132"/><circle cx="138" cy="132" r="1.6"/>
+              <path d="M66 195 L120 174"/><circle cx="120" cy="174" r="1.6"/>
+              <path d="M52 251 L93 224"/><circle cx="93" cy="224" r="1.6"/>
+              <path d="M235 99 L202 108"/><circle cx="202" cy="108" r="1.6"/>
+              <path d="M235 163 L207 178"/><circle cx="207" cy="178" r="1.6"/>
+              <path d="M235 235 L172 252"/><circle cx="172" cy="252" r="1.6"/>
+            </svg>
+
+            <div class="aqua-views">
+              <figure class="aqua-view" style="width: 36%">
+                <figcaption class="aqua-label">Avant · l’existant</figcaption>
+                <img src="assets/img/projets/aquarelle/spa-avant-02.webp" alt="Avant les travaux : terrasse brute avec banquettes en pierre et vue sur Paris" width="500" height="375">
+              </figure>
+              <figure class="aqua-view" style="width: 28%">
+                <figcaption class="aqua-label">Détail · tasseaux</figcaption>
+                <img src="assets/img/projets/aquarelle/spa-detail-tasseaux.webp" alt="Détail des tasseaux bois verticaux habillés de plantes grimpantes" width="360" height="291">
+              </figure>
+              <figure class="aqua-view" style="width: 24%">
+                <figcaption class="aqua-label">Avant</figcaption>
+                <img src="assets/img/projets/aquarelle/spa-avant-01.webp" alt="Avant les travaux : muret en pierre et sol brut" width="360" height="360">
+              </figure>
+            </div>
+            <span class="page__number">21</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 22 — Terrasse avec spa, matières et avant / après">
+          <div class="page__content aqua">
+            <img class="aqua-hero" style="top: 3%; left: 10%; width: 80%" src="assets/img/projets/aquarelle/spa-apres-02.webp" alt="Vue aquarellée de la terrasse rénovée : marches et coffres en bois, garde-corps à câbles, pot en terre cuite" width="900" height="675">
+
+            <p class="aqua-note" style="--top: 50%; --left: 6%">marches en bois</p>
+            <p class="aqua-note" style="--top: 50%; --left: 38%">garde-corps à câbles</p>
+            <p class="aqua-note" style="--top: 50%; --left: 70%">habillage &amp; coffres bois</p>
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M40 199 L90 138"/><circle cx="90" cy="138" r="1.6"/>
+              <path d="M130 199 L114 36"/><circle cx="114" cy="36" r="1.6"/>
+              <path d="M232 199 L210 124"/><circle cx="210" cy="124" r="1.6"/>
+            </svg>
+
+            <div class="aqua-info" style="top: 58%">
+              <div class="aqua-palettes">
+                <p class="aqua-label">Palette matériaux</p>
+                <ul class="aqua-swatches">
+                  <li><i style="--swatch: #B08A63"></i>bois</li>
+                  <li><i style="--swatch: #F1EFEA"></i>blanc</li>
+                  <li><i style="--swatch: #B9BCBE"></i>câbles inox</li>
+                  <li><i style="--swatch: #C7714D"></i>terre cuite</li>
+                  <li><i style="--swatch: #CFE0E3"></i>verre</li>
+                </ul>
+              </div>
+              <div class="aqua-notes">
+                <p class="aqua-label">Notes</p>
+                <ul>
+                  <li>garder la vue dégagée sur Paris</li>
+                  <li>spa encastré au ras du platelage</li>
+                  <li>marches &amp; coffres de rangement</li>
+                  <li>tasseaux pour habiller les murs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="aqua-compare">
+              <figure>
+                <img src="assets/img/projets/aquarelle/spa-avant-01.webp" alt="La terrasse avant les travaux" width="360" height="360">
+                <figcaption>avant</figcaption>
+              </figure>
+              <span class="aqua-compare__arrow" aria-hidden="true">→</span>
+              <figure>
+                <img src="assets/img/projets/aquarelle/spa-apres-01-carre.webp" alt="La même terrasse après les travaux" width="360" height="360">
+                <figcaption>après&nbsp;!</figcaption>
+              </figure>
+            </div>
+
+            <p class="aqua-foot">Paris Terrasse · terrasse avec spa · Paris</p>
+            <span class="page__number">22</span>
+          </div>
+        </section>
+
+        <!-- Pages 23–24 : planche artistique Sanchez, du rendu au végétal -->
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 23 — Projet Sanchez, rendu final">
+          <div class="page__content artistic-render">
+            <p class="artistic-render__eyebrow">Projet Sanchez · rendu final</p>
+            <figure class="artistic-render__frame">
+              <img src="assets/img/projets/sanchez/sanchez-rendu-bassin.webp" alt="Rendu réaliste d’un patio végétalisé avec bassin, banquette intégrée et lames de bois" width="1344" height="1020">
+              <figcaption>Vue d’ensemble · un patio végétalisé autour du bassin</figcaption>
+            </figure>
+            <span class="page__number">23</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 24 — Projet Sanchez, planche artistique">
+          <div class="page__content artistic-board">
+            <header class="artistic-board__header">
+              <p>Paris Terrasse <span>·</span> Projet Sanchez</p>
+              <span>Étude d’ambiance</span>
+            </header>
+            <h2 class="artistic-board__title">Un patio à vivre</h2>
+            <p class="artistic-board__concept">Bois chaleureux, bassin clair et feuillages enveloppants.</p>
+
+            <figure class="artistic-board__hero">
+              <img src="assets/img/projets/sanchez/aqua-perspective.webp" alt="Perspective aquarellée du patio : bassin, banquette, habillage bois et végétation grimpante" width="700" height="700">
+              <figcaption>Perspective · le patio comme un refuge</figcaption>
+            </figure>
+
+            <div class="artistic-board__details">
+              <figure>
+                <figcaption>Vue en plan</figcaption>
+                <img src="assets/img/projets/sanchez/aqua-dessus.webp" alt="Vue du dessus du patio aménagé avec bassin central, assises et plantations" width="700" height="700">
+                <p>Assise, bassin et platelage</p>
+              </figure>
+              <figure>
+                <figcaption>Détail végétal</figcaption>
+                <img src="assets/img/projets/sanchez/fougere.webp" alt="Feuillage de fougère, inspiration pour les plantations du patio" width="200" height="200">
+                <p>Des feuillages pour envelopper l’espace</p>
+              </figure>
+            </div>
+
+            <section class="artistic-board__palette" aria-label="Palette végétale d’inspiration">
+              <h3>Palette végétale · inspirations</h3>
+              <ul>
+                <li><img src="assets/img/projets/sanchez/fougere.webp" alt="" width="200" height="200"><span>Fougère</span></li>
+                <li><img src="assets/img/projets/sanchez/heuchere.webp" alt="" width="200" height="200"><span>Heuchère</span></li>
+                <li><img src="assets/img/projets/sanchez/pervenche.webp" alt="" width="200" height="200"><span>Pervenche</span></li>
+                <li><img src="assets/img/projets/sanchez/rhododendron.webp" alt="" width="200" height="200"><span>Rhododendron</span></li>
+              </ul>
+            </section>
+
+            <p class="artistic-board__foot">Paris Terrasse · Projet Sanchez · étude d’ambiance</p>
+            <span class="page__number">24</span>
+          </div>
+        </section>
+
+        <!-- Pages 25–26 : promenade paysagère — planches aquarelle -->
+        <section class="page page--blank page--paper page--aqua page--landscape-board" aria-label="Page 25 — Promenade paysagère, planche aquarelle">
+          <div class="page__content aqua">
+            <header class="aqua-head">
+              <p class="aqua-head__brand"><span>Paris Terrasse</span>Paysagistes</p>
+              <p class="aqua-head__project">Projet&nbsp;: promenade paysagère</p>
+              <p class="aqua-head__concept"><strong>Concept&nbsp;:</strong><br>un parc à parcourir&nbsp;: allées souples, eau, massifs fleuris et grands arbres.</p>
+            </header>
+
+            <div class="aqua-detail aqua-detail--text">
+              <p class="aqua-label">Les usages</p>
+              <ul class="aqua-detail__notes">
+                <li>se promener</li>
+                <li>s’asseoir au bord de l’eau</li>
+                <li>jouer</li>
+                <li>regarder passer les saisons</li>
+              </ul>
+            </div>
+
+            <img class="aqua-hero" style="top: 22%; left: 5%; width: 90%" src="assets/img/projets/aquarelle/parc-aerien.webp" alt="Vue aérienne aquarellée du parc : allée principale, plans d’eau, pelouses et arbres" width="698" height="420">
+
+            <p class="aqua-note" style="--top: 22.5%; --left: 3%">plans d’eau aux berges douces</p>
+            <p class="aqua-note" style="--top: 22.5%; --left: 28%">grands arbres isolés</p>
+            <p class="aqua-note" style="--top: 22.5%; --left: 52%">pelouses ouvertes</p>
+            <p class="aqua-note" style="--top: 22.5%; --left: 76%">bosquets en lisière</p>
+            <p class="aqua-note" style="--top: 64.5%; --left: 3%">massifs fleuris</p>
+            <p class="aqua-note" style="--top: 64.5%; --left: 35%">allée principale</p>
+            <p class="aqua-note" style="--top: 64.5%; --left: 66%">promeneurs &amp; repos</p>
+
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M20 86 L82 149"/><circle cx="82" cy="149" r="1.6"/>
+              <path d="M100 86 L128 112"/><circle cx="128" cy="112" r="1.6"/>
+              <path d="M168 86 L209 161"/><circle cx="209" cy="161" r="1.6"/>
+              <path d="M236 86 L244 104"/><circle cx="244" cy="104" r="1.6"/>
+              <path d="M20 256 L42 226"/><circle cx="42" cy="226" r="1.6"/>
+              <path d="M125 256 L150 218"/><circle cx="150" cy="218" r="1.6"/>
+              <path d="M210 256 L217 210"/><circle cx="217" cy="210" r="1.6"/>
+            </svg>
+
+            <div class="aqua-views aqua-views--landscape">
+              <figure class="aqua-view">
+                <figcaption class="aqua-label">Plan masse</figcaption>
+                <img src="assets/img/projets/aquarelle/parc-plan.webp" alt="Plan masse aquarellé : placettes rondes, aires de jeux et plantations" width="420" height="428">
+              </figure>
+              <figure class="aqua-view">
+                <figcaption class="aqua-label">Coupes · 1/200</figcaption>
+                <img src="assets/img/projets/aquarelle/parc-coupes.webp" alt="Coupes paysagères : berges, eau en contrebas et cheminements" width="600" height="603">
+              </figure>
+            </div>
+            <span class="page__number">25</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 26 — Promenade paysagère, perspective et palette végétale">
+          <div class="page__content aqua">
+            <img class="aqua-hero" style="top: 3%; left: 22%; width: 56%" src="assets/img/projets/aquarelle/parc-perspective.webp" alt="Perspective aquarellée : allée sinueuse entre massifs fleuris, passerelle en courbe et pavillon vitré" width="420" height="485">
+
+            <p class="aqua-note" style="--top: 10%; --left: 3%">allée sinueuse</p>
+            <p class="aqua-note" style="--top: 28%; --left: 3%">massifs vivaces colorés</p>
+            <p class="aqua-note" style="--top: 10%; --left: 78%">passerelle en courbe</p>
+            <p class="aqua-note" style="--top: 28%; --left: 78%">pavillon vitré</p>
+            <svg class="aqua-lines" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M58 47 L143 157"/><circle cx="143" cy="157" r="1.6"/>
+              <path d="M66 119 L85 177"/><circle cx="85" cy="177" r="1.6"/>
+              <path d="M234 47 L173 59"/><circle cx="173" cy="59" r="1.6"/>
+              <path d="M234 119 L150 101"/><circle cx="150" cy="101" r="1.6"/>
+            </svg>
+
+            <div class="aqua-info" style="top: 55%">
+              <div class="aqua-palettes">
+                <p class="aqua-label">Palette végétale</p>
+                <ul class="aqua-swatches aqua-swatches--plants">
+                  <li><img src="assets/img/projets/aquarelle/plante-aster.webp" alt="" width="200" height="200">aster</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-hypericum.webp" alt="" width="200" height="200">hypericum</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-ligustrum.webp" alt="" width="200" height="200">ligustrum</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-photinia.webp" alt="" width="200" height="200">photinia</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-pyracantha.webp" alt="" width="200" height="200">pyracantha</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-coreopsis.webp" alt="" width="200" height="200">coreopsis</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-cerastium.webp" alt="" width="200" height="200">cerastium</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-phlox.webp" alt="" width="200" height="200">phlox</li>
+                  <li><img src="assets/img/projets/aquarelle/plante-liatris.webp" alt="" width="200" height="200">liatris</li>
+                </ul>
+
+                <p class="aqua-label">Palette matériaux</p>
+                <ul class="aqua-swatches">
+                  <li><i style="--swatch: #D9D4C7"></i>allées claires</li>
+                  <li><i style="--swatch: #A57E57"></i>bois</li>
+                  <li><i style="--swatch: #8FB8B5"></i>eau</li>
+                  <li><i style="--swatch: #7C9A5A"></i>gazon</li>
+                  <li><i style="--swatch: #6E7B6A"></i>feuillages</li>
+                </ul>
+              </div>
+              <div class="aqua-notes">
+                <p class="aqua-label">Notes</p>
+                <ul>
+                  <li>un parc ouvert, pensé pour la promenade</li>
+                  <li>des allées souples entre les massifs</li>
+                  <li>l’eau au cœur du parc</li>
+                  <li>des floraisons étalées sur les saisons</li>
+                  <li>des aires de jeux &amp; de repos</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="aqua-foot">Paris Terrasse · promenade paysagère</p>
+            <span class="page__number">26</span>
+          </div>
+        </section>
+
+        <!-- Pages 27–28 : quatre essences, deux par page -->
+        <section class="page page--blank page--paper page--wood" aria-label="Page 27 — Certains de nos bois, Douglas et Cumaru">
           <div class="page__content wood-page">
             <header class="wood-page__heading">
               <p class="wood-page__eyebrow">Matières · terrasse bois</p>
@@ -426,11 +1052,11 @@
                 </div>
               </article>
             </div>
-            <span class="page__number">13</span>
+            <span class="page__number">27</span>
           </div>
         </section>
 
-        <section class="page page--blank page--paper page--wood" aria-label="Page 14 — Certains de nos bois, bambou et pin marron">
+        <section class="page page--blank page--paper page--wood" aria-label="Page 28 — Certains de nos bois, bambou et pin marron">
           <div class="page__content wood-page">
             <header class="wood-page__heading">
               <p class="wood-page__eyebrow">Matières · terrasse bois</p>
@@ -464,83 +1090,52 @@
                 </div>
               </article>
             </div>
-            <span class="page__number">14</span>
+            <span class="page__number">28</span>
           </div>
         </section>
 
-        <!-- Pages 15–16 : l'équipe Paris Terrasse, dernière double page -->
-        <section class="page page--blank page--paper page--team" aria-label="Page 15 — L'équipe Paris Terrasse">
-          <div class="page__content team-page">
-            <header class="team-page__heading">
-              <p class="team-page__eyebrow">Paris Terrasse</p>
-              <h2 class="team-page__title">Une équipe engagée</h2>
-              <p class="team-page__intro">Des expertises qui se complètent, du dessin au chantier.</p>
+        <!-- Pages 29–30 : extraits de témoignages publiés sur le site officiel de Paris Terrasse. -->
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 29 — Avis clients">
+          <div class="page__content aqua reviews">
+            <header class="reviews__head">
+              <p class="aqua-label">Avis clients</p>
+              <h2 class="reviews__title">Ils nous ont fait confiance</h2>
             </header>
-            <div class="team-grid">
-              <figure class="team-card">
-                <img src="assets/img/equipe/timothee-bonnet.webp" alt="Portrait de Timothée Bonnet" width="450" height="450">
-                <figcaption><strong>Timothée Bonnet</strong><span>Gérant</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/cecile-ambert.webp" alt="Portrait de Cécile Ambert" width="451" height="451">
-                <figcaption><strong>Cécile Ambert</strong><span>Responsable du bureau d’études</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/florian-gars.webp" alt="Portrait de Florian Gars" width="451" height="451">
-                <figcaption><strong>Florian Gars</strong><span>Chef de chantier</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/audrey-samson.webp" alt="Portrait d’Audrey Samson" width="451" height="451">
-                <figcaption><strong>Audrey Samson</strong><span>Conceptrice paysagiste</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/christophe-monsire.webp" alt="Portrait de Christophe Monsire" width="450" height="451">
-                <figcaption><strong>Christophe Monsire</strong><span>Chef de chantier</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/maelle-gars.webp" alt="Portrait de Maëlle Gars" width="451" height="451">
-                <figcaption><strong>Maëlle Gars</strong><span>Assistante de direction</span></figcaption>
-              </figure>
-            </div>
-            <span class="page__number">15</span>
+
+            <figure class="review" style="--turn: -1.5deg">
+              <blockquote>Super écoute et finition au top.</blockquote>
+              <figcaption>Nicolas Rodrigues</figcaption>
+            </figure>
+            <figure class="review review--right" style="--turn: 1.2deg">
+              <blockquote>Un extérieur chaleureux et fonctionnel avec goût et créativité.</blockquote>
+              <figcaption>Anaïs Liger</figcaption>
+            </figure>
+            <span class="page__number">29</span>
           </div>
         </section>
 
-        <section class="page page--blank page--paper page--team" aria-label="Page 16 — L'équipe Paris Terrasse sur le terrain">
-          <div class="page__content team-page">
-            <header class="team-page__heading">
-              <p class="team-page__eyebrow">Ensemble, sur le terrain</p>
-              <h2 class="team-page__title">Du projet au jardin</h2>
-              <p class="team-page__intro">Une équipe de passionnés à chaque étape de votre projet.</p>
-            </header>
-            <div class="team-grid">
-              <figure class="team-card">
-                <img src="assets/img/equipe/hugo-pre.webp" alt="Portrait de Hugo Pré" width="452" height="451">
-                <figcaption><strong>Hugo Pré</strong><span>Chef d’équipe</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/pauline-pages.webp" alt="Portrait de Pauline Pages" width="451" height="451">
-                <figcaption><strong>Pauline Pages</strong><span>Apprentie ouvrière paysagiste</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/dylan-kostreski.webp" alt="Portrait de Dylan Kostreski" width="451" height="451">
-                <figcaption><strong>Dylan Kostreski</strong><span>Ouvrier paysagiste</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/maxime-cormier.webp" alt="Portrait de Maxime Cormier" width="450" height="450">
-                <figcaption><strong>Maxime Cormier</strong><span>Apprenti ouvrier paysagiste</span></figcaption>
-              </figure>
-              <figure class="team-card">
-                <img src="assets/img/equipe/vigo.webp" alt="Portrait de Vigo, mascotte de l’équipe" width="451" height="451">
-                <figcaption><strong>Vigo</strong><span>Chief Happiness Officer</span></figcaption>
-              </figure>
-            </div>
-            <span class="page__number">16</span>
+        <section class="page page--blank page--paper page--aqua" aria-label="Page 30 — Avis clients, suite">
+          <div class="page__content aqua reviews">
+            <img class="reviews__art" src="assets/img/projets/sanchez/aqua-banquette.webp" alt="" width="1100" height="619">
+
+            <figure class="review review--right" style="--turn: 1deg">
+              <blockquote>Professionnalisme, efficacité et soin étaient au rendez-vous.</blockquote>
+              <figcaption>Antoine Cotty</figcaption>
+            </figure>
+            <figure class="review" style="--turn: -1.4deg">
+              <blockquote>Une équipe compétente et attentive composée de personnes passionnées et efficaces.</blockquote>
+              <figcaption>Catherine Grollier</figcaption>
+            </figure>
+
+            <a class="reviews__more" href="https://www.paristerrasse.fr/landing-paris-paysagisye-paris/">
+              Lire plus de témoignages &nbsp;→
+            </a>
+            <span class="page__number">30</span>
           </div>
         </section>
 
-        <!-- Pages 17–18 : appel à l'action, juste avant la 4e de couverture -->
-        <section class="page page--blank page--paper page--project" aria-label="Page 17 — Comment se déroule votre projet">
+        <!-- Pages 31–32 : appel à l'action, juste avant la 4e de couverture -->
+        <section class="page page--blank page--paper page--project" aria-label="Page 31 — Comment se déroule votre projet">
           <div class="page__content project-page">
             <header class="project-page__heading">
               <p class="project-page__eyebrow">Votre projet</p>
@@ -577,11 +1172,11 @@
                 </div>
               </li>
             </ol>
-            <span class="page__number">17</span>
+            <span class="page__number">31</span>
           </div>
         </section>
 
-        <section class="page page--blank page--paper page--project" aria-label="Page 18 — Demander un devis gratuit">
+        <section class="page page--blank page--paper page--project" aria-label="Page 32 — Demander un devis gratuit">
           <div class="page__content project-page project-page--cta">
             <p class="project-page__eyebrow">Parlons-en</p>
             <hr class="cover__line">
@@ -603,7 +1198,7 @@
               <img src="assets/img/qr-paristerrasse.svg" alt="QR code vers le site paristerrasse.fr" width="116" height="116">
               <figcaption>Scannez pour retrouver<br>nos réalisations et nous contacter</figcaption>
             </figure>
-            <span class="page__number">18</span>
+            <span class="page__number">32</span>
           </div>
         </section>
 

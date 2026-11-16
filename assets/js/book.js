@@ -185,6 +185,21 @@ function previousPage() {
 
 /* ---------- Points et sommaire ---------- */
 
+function thumbnailImageForSpread(spread) {
+  const firstPage = firstPageOf(spread);
+  const spreadPages = spread === lastSpread
+    ? [pages[lastPage]]
+    : [pages[firstPage], pages[firstPage + 1]].filter(Boolean);
+
+  for (const page of spreadPages) {
+    const image = [...page.querySelectorAll('img[src]')]
+      .find(candidate => candidate.getAttribute('alt') !== '');
+    if (image) return image;
+  }
+
+  return spreadPages.flatMap(page => [...page.querySelectorAll('img[src]')])[0] || null;
+}
+
 function buildNavigation() {
   for (let spread = 0; spread <= lastSpread; spread++) {
     const name = spreadName(spread);
@@ -202,7 +217,29 @@ function buildNavigation() {
     link.type = 'button';
     link.className = 'summary__link';
     link.dataset.goto = target;
-    link.textContent = name.replace('Pages ', 'P. ');
+
+    const thumbnail = document.createElement('span');
+    thumbnail.className = 'summary__thumbnail';
+    thumbnail.setAttribute('aria-hidden', 'true');
+
+    const sourceImage = thumbnailImageForSpread(spread);
+    if (sourceImage) {
+      const image = document.createElement('img');
+      image.src = sourceImage.getAttribute('src');
+      image.alt = '';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      thumbnail.append(image);
+    } else {
+      thumbnail.classList.add('summary__thumbnail--empty');
+      thumbnail.textContent = 'Paris Terrasse';
+    }
+
+    const label = document.createElement('span');
+    label.className = 'summary__label';
+    label.textContent = name.replace('Pages ', 'P. ');
+
+    link.append(thumbnail, label);
     summaryList.append(link);
   }
 }

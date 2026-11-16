@@ -47,6 +47,7 @@ body {
 .footer,
 .book-arrow,
 .warm-up,
+.book-tip,
 .cover__open,
 .back-cover__restart {
   display: none !important;
