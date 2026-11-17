@@ -1803,8 +1803,162 @@
   text-transform: uppercase;
 }
 
+.page--sanchez-showcase,
+.page--sanchez-study {
+  background-color: #F7F2E6;
+}
 
-/* ---------- Pages 19–24 : planches aquarelle « pleines d'infos » ----------
+.sanchez-showcase,
+.sanchez-study {
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  background: #F7F2E6;
+}
+
+.sanchez-showcase__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+}
+
+.sanchez-showcase__tag {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 4;
+  padding: .5em .8em;
+  background: rgba(255, 255, 255, .9);
+  color: #30362D;
+  font-size: .58em;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sanchez-showcase__tag span {
+  color: #A77D4B;
+}
+
+.sanchez-study__hero {
+  position: absolute;
+  top: 1.5%;
+  left: 2%;
+  width: 96%;
+  height: 42%;
+  object-fit: contain;
+}
+
+.sanchez-study__hero-title {
+  position: absolute;
+  top: 43.5%;
+  left: 5%;
+  color: #3A4136;
+  font-size: .5em;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.sanchez-study__views {
+  position: absolute;
+  top: 47%;
+  right: 5%;
+  height: 23%;
+  left: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3%;
+}
+
+.sanchez-study__views figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.sanchez-study__views img {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 0;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.sanchez-study__views figcaption {
+  flex: 0 0 auto;
+  padding-top: .2em;
+  color: #3A4136;
+  font-size: .48em;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sanchez-study__palettes {
+  position: absolute;
+  top: 71%;
+  right: 5%;
+  bottom: 6%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: .25em;
+}
+
+.sanchez-study__palette {
+  display: grid;
+  grid-template-columns: 19% minmax(0, 1fr);
+  align-items: center;
+  gap: 1%;
+  min-height: 0;
+}
+
+.sanchez-study__palette + .sanchez-study__palette {
+  padding-top: .3em;
+  border-top: 1px solid rgba(58, 65, 54, .2);
+}
+
+.sanchez-study__palette .aqua-label {
+  margin: 0;
+  font-size: .56em;
+  letter-spacing: .1em;
+  line-height: 1.15;
+}
+
+.sanchez-study__palette .aqua-swatches {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .2em;
+  margin: 0;
+}
+
+.sanchez-study__palette .aqua-swatches li {
+  gap: .3em;
+  font-size: .8em;
+  line-height: 1.1;
+}
+
+.sanchez-study__palette .aqua-swatches img,
+.sanchez-study__palette .aqua-swatches i {
+  flex: 0 0 auto;
+  width: 4em;
+  height: 4em;
+}
+
+
+/* ---------- Pages 19–26 : planches aquarelle « pleines d'infos » ----------
    Papier grainé, vues aquarellées aux bords fondus (préparées en WebP transparent),
    annotations reliées par de fins traits de rappel. Positions en % de la page (3/4). */
 
