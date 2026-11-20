@@ -59,7 +59,7 @@
   <link rel="stylesheet" href="assets/css/variables.css?v=10">
   <link rel="stylesheet" href="assets/css/base.css?v=10">
   <link rel="stylesheet" href="assets/css/header.css?v=11">
-  <link rel="stylesheet" href="assets/css/book.css?v=67">
+  <link rel="stylesheet" href="assets/css/book.css?v=74">
   <link rel="stylesheet" href="assets/css/navigation.css?v=12">
   <link rel="stylesheet" href="assets/css/footer.css?v=10">
   <link rel="stylesheet" href="assets/css/print.css?v=14" media="print">
@@ -237,7 +237,9 @@
               <li><button type="button" class="toc__link" data-goto="11"><span class="toc__name">Terrasse avec spa, vue sur Paris</span><span class="toc__page">11</span></button></li>
               <li><button type="button" class="toc__link" data-goto="13"><span class="toc__name">Projet Sanchez · planche artistique</span><span class="toc__page">13</span></button></li>
               <li><button type="button" class="toc__link" data-goto="15"><span class="toc__name">Promenade paysagère</span><span class="toc__page">15</span></button></li>
-              <li><button type="button" class="toc__link" data-goto="17"><span class="toc__name">Votre projet</span><span class="toc__page">17</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="17"><span class="toc__name">Projet Roche · jardin sous pergola</span><span class="toc__page">17</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="23"><span class="toc__name">Projet Doukhan · terrasse en ville</span><span class="toc__page">23</span></button></li>
+              <li><button type="button" class="toc__link" data-goto="31"><span class="toc__name">Votre projet</span><span class="toc__page">31</span></button></li>
             </ol>
             <span class="page__number">02</span>
           </div>
@@ -799,8 +801,549 @@
           </div>
         </section>
 
-        <!-- Pages 17–18 : appel à l'action, juste avant la 4e de couverture -->
-        <section class="page page--blank page--paper page--project" aria-label="Page 17 — Comment se déroule votre projet">
+        <!-- Pages 17–22 : projet Roche — terrasse-jardin sous pergola (3 doubles pages).
+             Mise en page « folio » (voir book.css) : chaque élément se place avec
+             style="--x / --y / --w / --h" en % de la page. -->
+        <section class="page page--blank page--folio" aria-label="Page 17 — Projet Roche, intentions et moodboard">
+          <div class="page__content folio">
+            <header class="folio-band">
+              <p class="folio-band__name">Roche</p>
+              <p class="folio-band__ref">Projet 02 · terrasse-jardin</p>
+            </header>
+
+            <div class="folio-intro" style="--y: 12.5%">
+              <p class="folio-eyebrow">Paris Terrasse · Paysagistes</p>
+              <h2 class="folio-title">Un jardin méditerranéen sous la pergola</h2>
+              <p class="folio-text">Une grande terrasse transformée en jardin de vie&nbsp;: on y déjeune à l’ombre, on s’y allonge au soleil et l’on circule entre massifs fleuris et graminées.</p>
+            </div>
+
+            <div class="folio-brief" style="--y: 30%">
+              <section>
+                <h3>Sujet</h3>
+                <p>Aménager une terrasse brute en un vrai jardin, à vivre en toutes saisons.</p>
+              </section>
+              <section>
+                <h3>Stratégie</h3>
+                <p>Pergola bois pour l’ombre, ganivelle d’eucalyptus pour l’intimité, gazon pour la douceur.</p>
+              </section>
+              <section>
+                <h3>Programme</h3>
+                <p>Repas 8 couverts · salon · bains de soleil · massifs · rangements.</p>
+              </section>
+            </div>
+
+            <p class="folio-label" style="left: 8%; top: 45%">Moodboard · ambiance générale</p>
+
+            <figure class="folio-pic" style="--x: 8%; --y: 49.5%; --w: 21%; --h: 25%">
+              <img src="assets/img/projets/roche/mood-ganivelle.webp" alt="Jardin sec avec clôture en ganivelle de bois brut et graminées" width="467" height="700">
+            </figure>
+            <figure class="folio-pic" style="--x: 30.5%; --y: 49.5%; --w: 21%; --h: 25%">
+              <img src="assets/img/projets/roche/mood-pergola.webp" alt="Pergola en bois couverte de rosiers grimpants au-dessus d’une allée" width="467" height="700">
+            </figure>
+            <figure class="folio-pic" style="--x: 53%; --y: 49.5%; --w: 19%; --h: 25%">
+              <img src="assets/img/projets/roche/mood-cuisine.webp" alt="Cuisine d’extérieur en bois sous une pergola à tasseaux" width="394" height="700">
+            </figure>
+            <figure class="folio-pic" style="--x: 73.5%; --y: 53%; --w: 18.5%; --h: 21.5%">
+              <img src="assets/img/projets/roche/mood-daybed.webp" alt="Lit de jour en bois avec coussins écrus au jardin" width="442" height="663">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 80%; --y: 44%; --w: 7%; --h: 8%; --z: 2">
+              <img src="assets/img/projets/roche/mood-baladeuse.webp" alt="Baladeuse lumineuse ronde" width="280" height="280">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 8%; --y: 76%; --w: 29%; --h: 16%">
+              <img src="assets/img/projets/roche/mood-bois.webp" alt="Lames de bois clair" width="391" height="312">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 39%; --y: 80%; --w: 15%; --h: 11%">
+              <img src="assets/img/projets/roche/mood-jardiniere.webp" alt="Jardinière rectangulaire en pierre claire" width="300" height="400">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 55%; --y: 76%; --w: 9%; --h: 16%">
+              <img src="assets/img/projets/roche/mood-vase.webp" alt="Grand vase texturé" width="300" height="400">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 64.5%; --y: 79%; --w: 9.5%; --h: 13%">
+              <img src="assets/img/projets/roche/mood-pot-bronze.webp" alt="Pot cannelé bronze" width="400" height="400">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 74%; --y: 78%; --w: 10%; --h: 14%">
+              <img src="assets/img/projets/roche/mood-pot-sable.webp" alt="Pot à motif losange couleur sable" width="400" height="400">
+            </figure>
+            <figure class="folio-pic folio-pic--cut" style="--x: 84%; --y: 82%; --w: 8%; --h: 10%">
+              <img src="assets/img/projets/roche/mood-pot-noir.webp" alt="Pot émaillé noir et terre" width="400" height="400">
+            </figure>
+            <p class="folio-hand" style="--x: 62%; --y: 93%; --r: -2deg">poteries texturées</p>
+            <span class="page__number">17</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 18 — Projet Roche, vues d’ensemble">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 0%; --y: 0%; --w: 100%; --h: 47%">
+              <img src="assets/img/projets/roche/vue-ensemble-biais.webp" alt="Vue 3D d’ensemble de la terrasse Roche : pergola en tasseaux, gazon, massifs et salon" width="1344" height="756">
+              <figcaption class="folio-tag folio-tag--top">Vues d’ensemble</figcaption>
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 51%; --w: 56%; --h: 31%">
+              <img src="assets/img/projets/roche/vue-ensemble-dessus.webp" alt="Vue 3D de dessus : pergola, espace repas, gazon et massifs en bordure" width="1344" height="756">
+              <figcaption>Vue de dessus · pergola, gazon et massifs</figcaption>
+            </figure>
+
+            <div class="folio-intro" style="--x: 66%; --y: 51%; --w: 28%">
+              <p class="folio-eyebrow">Le parcours</p>
+              <ul class="folio-notes">
+                <li><strong>Le repas</strong> à l’ombre de la pergola</li>
+                <li><strong>Le salon</strong> posé sur le gazon</li>
+                <li><strong>Les massifs</strong> en bordure, pour l’intimité</li>
+              </ul>
+            </div>
+
+            <figure class="folio-pic" style="--x: 66%; --y: 70%; --w: 28%; --h: 12%">
+              <img src="assets/img/projets/roche/vue-plongeante.webp" alt="Vue plongeante 3D sur le salon et les massifs" width="1400" height="788">
+              <figcaption>Vue plongeante</figcaption>
+            </figure>
+
+            <p class="folio-foot" style="left: 6%">Paris Terrasse · projet Roche · images non exhaustives</p>
+            <span class="page__number">18</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 19 — Projet Roche, l’espace repas sous la pergola">
+          <div class="page__content folio">
+            <p class="folio-vtitle" style="--x: 3.2%; --y: 6%">Projet Roche</p>
+
+            <div class="folio-intro" style="--x: 9%; --y: 6%; --w: 25%">
+              <p class="folio-eyebrow">Roche · 01</p>
+              <h2 class="folio-title">Le repas sous la pergola</h2>
+              <p class="folio-text">Une pergola en tasseaux de bois filtre la lumière au-dessus d’une grande table de huit couverts.</p>
+              <p class="folio-text">Côté vis-à-vis, une ganivelle en eucalyptus brut protège les regards sans fermer l’espace.</p>
+              <ul class="folio-notes">
+                <li>table Luxembourg 207 × 100</li>
+                <li>chaises Luxembourg × 8</li>
+                <li>baladeuses Bolleke</li>
+                <li>composite Millboard frêne</li>
+              </ul>
+            </div>
+
+            <figure class="folio-pic" style="--x: 37%; --y: 5%; --w: 58%; --h: 21%">
+              <img src="assets/img/projets/roche/vue-pergola-ganivelle.webp" alt="Rendu 3D : pergola en tasseaux et ganivelle en eucalyptus brut" width="1344" height="756">
+            </figure>
+            <figure class="folio-pic" style="--x: 37%; --y: 27.5%; --w: 58%; --h: 21%">
+              <img src="assets/img/projets/roche/vue-pergola-table.webp" alt="Rendu 3D : grande table dressée sous la pergola, chaises claires et baladeuses" width="1344" height="756">
+            </figure>
+            <figure class="folio-pic" style="--x: 37%; --y: 50%; --w: 58%; --h: 21%">
+              <img src="assets/img/projets/roche/vue-repas.webp" alt="Rendu 3D : la table en bout de pergola, devant la baie vitrée" width="1344" height="756">
+            </figure>
+            <figure class="folio-pic" style="--x: 37%; --y: 72.5%; --w: 58%; --h: 21%">
+              <img src="assets/img/projets/roche/vue-baie.webp" alt="Rendu 3D : la baie vitrée ouverte sur la terrasse, lavandes au premier plan" width="1344" height="756">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 9%; --y: 72.5%; --w: 25%; --h: 21%">
+              <img src="assets/img/projets/roche/mat-eucalyptus.webp" alt="Rondins d’eucalyptus brut de la ganivelle" width="231" height="500" style="object-fit: contain; background: #ECE6D8">
+              <figcaption>Ganivelle · eucalyptus brut</figcaption>
+            </figure>
+            <span class="page__number">19</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 20 — Projet Roche, le jardin">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 0%; --y: 0%; --w: 100%; --h: 100%; --pos: 42% center">
+              <img src="assets/img/projets/roche/vue-massifs.webp" alt="Rendu 3D : massifs de vivaces et plantes grimpantes le long du bardage bois" width="1400" height="788">
+            </figure>
+            <p class="folio-vtitle" style="--r: 3.5%; --y: 6%; --color: #FFFFFF">Le jardin</p>
+
+            <figure class="folio-pic folio-pic--framed" style="--x: 6%; --y: 66%; --w: 54%; --h: 25%; --z: 2">
+              <img src="assets/img/projets/roche/vue-jardin-vase.webp" alt="Rendu 3D : coin repas au milieu des massifs, grand vase texturé et lavandes" width="1344" height="756">
+              <figcaption class="folio-tag">Massifs &amp; poteries</figcaption>
+            </figure>
+            <span class="page__number">20</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 21 — Projet Roche, palette végétale et matériaux">
+          <div class="page__content folio">
+            <header class="folio-band">
+              <p class="folio-band__name">Roche</p>
+              <p class="folio-band__ref">Ambiance végétale</p>
+            </header>
+
+            <p class="folio-text" style="left: 8%; top: 12%; width: 84%">Une palette méditerranéenne&nbsp;: feuillages argentés, fleurs blanches et touches de bleu, de rose et de jaune, pour fleurir la terrasse du printemps à l’automne.</p>
+
+            <div class="folio-grid" style="--y: 19%">
+              <p class="folio-label">Palette végétale</p>
+              <ul style="--ratio: 1.3">
+                <li><img src="assets/img/projets/roche/plante-olivier.webp" alt="" width="368" height="484">Olivier</li>
+                <li><img src="assets/img/projets/roche/plante-agrumes.webp" alt="" width="344" height="500">Agrumes</li>
+                <li><img src="assets/img/projets/roche/plante-lavande.webp" alt="" width="375" height="500">Lavande</li>
+                <li><img src="assets/img/projets/roche/plante-gaura.webp" alt="" width="442" height="442">Gaura</li>
+                <li><img src="assets/img/projets/roche/plante-agapanthe.webp" alt="" width="332" height="500">Agapanthe</li>
+                <li><img src="assets/img/projets/roche/plante-jasmin.webp" alt="" width="236" height="354">Jasmin étoilé</li>
+                <li><img src="assets/img/projets/roche/plante-romarin.webp" alt="" width="400" height="500">Romarin retombant</li>
+                <li><img src="assets/img/projets/roche/plante-erable.webp" alt="" width="346" height="461">Érable du Japon</li>
+                <li><img src="assets/img/projets/roche/plante-viorne.webp" alt="" width="282" height="500">Viorne boule-de-neige</li>
+                <li><img src="assets/img/projets/roche/plante-laurier-rose.webp" alt="" width="331" height="500">Laurier-rose</li>
+                <li><img src="assets/img/projets/roche/plante-rosier.webp" alt="" width="375" height="500">Rosier blanc</li>
+                <li><img src="assets/img/projets/roche/plante-erigeron.webp" alt="" width="400" height="500">Érigéron</li>
+              </ul>
+            </div>
+
+            <div class="folio-grid" style="--y: 74%">
+              <p class="folio-label">Planche matériaux</p>
+              <ul style="--ratio: 1.6">
+                <li><img src="assets/img/projets/roche/mat-millboard.webp" alt="" width="391" height="312"><strong>Composite</strong>Millboard · frêne</li>
+                <li><img src="assets/img/projets/roche/mat-composite.webp" alt="" width="700" height="449"><strong>Platelage</strong>en situation</li>
+                <li><img src="assets/img/projets/roche/mat-gazon.webp" alt="" width="600" height="305"><strong>Gazon</strong>synthétique luxe</li>
+                <li><img src="assets/img/projets/roche/mat-gazon-jardin.webp" alt="" width="700" height="464"><strong>Gazon</strong>en situation</li>
+              </ul>
+            </div>
+            <span class="page__number">21</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 22 — Projet Roche, le salon et le mobilier">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 0%; --y: 0%; --w: 100%; --h: 36%">
+              <img src="assets/img/projets/roche/vue-salon-galets.webp" alt="Rendu 3D : salon bas sur le gazon, tables galets et massifs de lavande" width="1400" height="788">
+              <figcaption class="folio-tag">Le salon sur le gazon</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 6%; --y: 39%; --w: 43%; --h: 16%">
+              <img src="assets/img/projets/roche/vue-salon-rosier.webp" alt="Rendu 3D : salon et rosier grimpant sur la pergola" width="1344" height="756">
+            </figure>
+            <figure class="folio-pic" style="--x: 51%; --y: 39%; --w: 43%; --h: 16%">
+              <img src="assets/img/projets/roche/vue-salon-bacs.webp" alt="Rendu 3D : bains de soleil et bacs plantés de graminées" width="1344" height="756">
+            </figure>
+
+            <div class="folio-grid folio-grid--products" style="--x: 6%; --w: 88%; --y: 58.5%">
+              <p class="folio-label">Proposition mobilier</p>
+              <ul style="--ratio: 1.6">
+                <li><img class="is-photo" src="assets/img/projets/roche/mob-salon-dailin.webp" alt="" width="400" height="600"><strong>Salon</strong>Dailin</li>
+                <li><img class="is-photo" src="assets/img/projets/roche/mob-verona.webp" alt="" width="300" height="450"><strong>Chaise longue</strong>Verona</li>
+                <li><img src="assets/img/projets/roche/mob-table-luxembourg.webp" alt="" width="600" height="600"><strong>Table</strong>Luxembourg · 8 pl.</li>
+                <li><img src="assets/img/projets/roche/mob-chaise-luxembourg.webp" alt="" width="400" height="400"><strong>Chaises</strong>Luxembourg × 8</li>
+                <li><img src="assets/img/projets/roche/mob-bolleke.webp" alt="" width="500" height="333"><strong>Baladeuse</strong>Bolleke</li>
+                <li><img class="is-photo" src="assets/img/projets/roche/mob-xaria.webp" alt="" width="336" height="500"><strong>Table basse</strong>Xaria</li>
+                <li><img src="assets/img/projets/roche/mob-bistro.webp" alt="" width="450" height="450"><strong>Bistro</strong>table &amp; chaises</li>
+                <li><img class="is-photo" src="assets/img/projets/roche/mob-forzan.webp" alt="" width="333" height="500"><strong>Coffre</strong>Forzan · 915 L</li>
+              </ul>
+            </div>
+            <span class="page__number">22</span>
+          </div>
+        </section>
+
+        <!-- Pages 23–30 : projet Doukhan — terrasse en ville (4 doubles pages).
+             23–26 : plan 3D, salon, dînatoire, chambre ; 27–28 : moodboard sur toute
+             la double page ; 29–30 : grand moodboard en mosaïque. -->
+        <section class="page page--blank page--folio" aria-label="Page 23 — Projet Doukhan, plan 3D et palette végétale">
+          <div class="page__content folio">
+            <header class="folio-band">
+              <p class="folio-band__name">Doukhan</p>
+              <p class="folio-band__ref">Plan 3D</p>
+            </header>
+
+            <figure class="folio-pic" style="--x: 8%; --y: 12%; --w: 84%; --h: 35.5%">
+              <img src="assets/img/projets/doukhan/plan-3d.webp" alt="Plan 3D vu de dessus : terrasse en L, salon sur tapis rond, table, pots en terre cuite et massifs" width="1500" height="844">
+              <figcaption>Vue de dessus · le salon et la table, reliés par le platelage</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 8%; --y: 52%; --w: 41%; --h: 17.3%">
+              <img src="assets/img/projets/doukhan/plan-3d-parasol.webp" alt="Plan 3D avec le grand parasol ouvert au-dessus de la table" width="1500" height="844">
+              <figcaption>Avec le parasol ouvert</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 51%; --y: 52%; --w: 41%; --h: 17.3%">
+              <img src="assets/img/projets/doukhan/plan-3d-c.webp" alt="Plan 3D en biais : salon en L, parasol et bacs plantés" width="1500" height="844">
+              <figcaption>Vue en biais</figcaption>
+            </figure>
+
+            <div class="folio-grid" style="--y: 75%">
+              <p class="folio-label">Palette végétale</p>
+              <ul style="--cols: 5">
+                <li><img src="assets/img/projets/doukhan/plante-erigeron.webp" alt="" width="300" height="400">Érigéron</li>
+                <li><img src="assets/img/projets/doukhan/plante-lavande.webp" alt="" width="400" height="288">Lavande</li>
+                <li><img src="assets/img/projets/doukhan/plante-agapanthe.webp" alt="" width="300" height="300">Agapanthe</li>
+                <li><img src="assets/img/projets/doukhan/plante-euphorbe.webp" alt="" width="316" height="316">Euphorbe</li>
+                <li><img src="assets/img/projets/doukhan/plante-jasmin.webp" alt="" width="300" height="400">Jasmin étoilé</li>
+              </ul>
+            </div>
+            <span class="page__number">23</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 24 — Projet Doukhan, l’espace salon">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 0%; --y: 0%; --w: 100%; --h: 42%">
+              <img src="assets/img/projets/doukhan/salon-perspective.webp" alt="Rendu 3D de l’espace salon : canapé blanc, tables basses rondes sur tapis terracotta, grands pots et arbustes" width="1500" height="844">
+              <figcaption class="folio-tag">Espace salon</figcaption>
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 46%; --w: 56%; --h: 23.6%">
+              <img src="assets/img/projets/doukhan/salon-dessus.webp" alt="Vue 3D plongeante sur le salon : tapis rond, fauteuils et pots" width="1500" height="844">
+              <figcaption>Vue plongeante sur le salon</figcaption>
+            </figure>
+
+            <div class="folio-grid folio-grid--products" style="--x: 65%; --w: 29%; --y: 45%">
+              <ul style="--cols: 2; margin-top: 0">
+                <li><img class="is-photo" src="assets/img/projets/doukhan/salon-tapis.webp" alt="" width="383" height="400"><strong>Tapis</strong>rond terracotta</li>
+                <li><img class="is-photo" src="assets/img/projets/doukhan/salon-tables-basses.webp" alt="" width="360" height="450"><strong>Tables</strong>basses rondes</li>
+                <li><img class="is-photo" src="assets/img/projets/doukhan/salon-fauteuil.webp" alt="" width="300" height="450"><strong>Fauteuil</strong>bas, teck</li>
+                <li><img src="assets/img/projets/doukhan/salon-pot-vert.webp" alt="" width="360" height="360"><strong>Pot</strong>émaillé vert</li>
+              </ul>
+            </div>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 75%; --w: 26%; --h: 18%">
+              <img src="assets/img/projets/doukhan/salon-olivier-pot.webp" alt="Olivier en pot émaillé vert près d’un fauteuil" width="500" height="500">
+            </figure>
+            <div class="folio-intro" style="--x: 36%; --y: 76%; --w: 58%">
+              <p class="folio-eyebrow">Notes</p>
+              <ul class="folio-notes">
+                <li>un tapis rond pour ancrer le salon</li>
+                <li>des tables basses gigognes, lignes douces</li>
+                <li>des pots émaillés vert bouteille</li>
+                <li>des oliviers en pot pour une ombre légère</li>
+              </ul>
+            </div>
+            <span class="page__number">24</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 25 — Projet Doukhan, l’espace dînatoire">
+          <div class="page__content folio">
+            <header class="folio-band">
+              <p class="folio-band__name">Doukhan</p>
+              <p class="folio-band__ref">Espace dînatoire</p>
+            </header>
+
+            <figure class="folio-pic" style="--x: 8%; --y: 12%; --w: 84%; --h: 35.5%">
+              <img src="assets/img/projets/doukhan/repas-vue-a.webp" alt="Rendu 3D : table et chaises vert sauge sous le parasol, bacs de lavande et arbustes" width="1500" height="844">
+              <figcaption>La table d’été, à l’ombre du parasol</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 8%; --y: 52%; --w: 41%; --h: 17.3%">
+              <img src="assets/img/projets/doukhan/repas-vue-c.webp" alt="Rendu 3D : la table vue depuis l’angle de la terrasse" width="1500" height="844">
+              <figcaption>Depuis l’angle de la terrasse</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 51%; --y: 52%; --w: 41%; --h: 17.3%">
+              <img src="assets/img/projets/doukhan/repas-vue-b.webp" alt="Rendu 3D : du salon vers la table, poufs blancs et grands pots" width="1500" height="844">
+              <figcaption>Du salon vers la table</figcaption>
+            </figure>
+
+            <div class="folio-grid folio-grid--products" style="--y: 73.5%">
+              <p class="folio-label">Mobilier &amp; bacs</p>
+              <ul style="--ratio: 1.3">
+                <li><img class="is-photo" src="assets/img/projets/doukhan/repas-table.webp" alt="" width="337" height="450"><strong>Table</strong>métal vert sauge</li>
+                <li><img src="assets/img/projets/doukhan/repas-chaise.webp" alt="" width="450" height="450"><strong>Chaises</strong>filaires</li>
+                <li><img class="is-photo" src="assets/img/projets/doukhan/repas-bac.webp" alt="" width="337" height="450"><strong>Bac</strong>pierre claire</li>
+                <li><img class="is-photo" src="assets/img/projets/doukhan/repas-ambiance.webp" alt="" width="500" height="500"><strong>Ambiance</strong>repas au jardin</li>
+              </ul>
+            </div>
+            <span class="page__number">25</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 26 — Projet Doukhan, la terrasse côté chambre">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 0%; --y: 0%; --w: 100%; --h: 42%">
+              <img src="assets/img/projets/doukhan/chambre-a.webp" alt="Rendu 3D de la terrasse côté chambre : alignement de bacs blancs plantés devant un mur de lierre" width="1500" height="844">
+              <figcaption class="folio-tag">Terrasse côté chambre</figcaption>
+            </figure>
+            <figure class="folio-pic" style="--x: 6%; --y: 46%; --w: 43%; --h: 18%">
+              <img src="assets/img/projets/doukhan/chambre-c.webp" alt="Rendu 3D : les bacs plantés vus de face" width="1344" height="756">
+            </figure>
+            <figure class="folio-pic" style="--x: 51%; --y: 46%; --w: 43%; --h: 18%">
+              <img src="assets/img/projets/doukhan/chambre-d.webp" alt="Rendu 3D : les bacs plantés vus en biais, le long du platelage" width="1344" height="756">
+            </figure>
+
+            <div class="folio-intro" style="--x: 6%; --y: 68.5%; --w: 38%">
+              <p class="folio-eyebrow">Côté chambre</p>
+              <h2 class="folio-title">Une bordure fleurie</h2>
+              <p class="folio-text">Une ligne de bacs blancs, plantés de vivaces et de graminées, adoucit le mur et fleurit la vue depuis la chambre.</p>
+            </div>
+
+            <div class="folio-grid" style="--x: 50%; --w: 44%; --y: 68.5%">
+              <ul style="--cols: 3; margin-top: 0; gap: .7em .6em">
+                <li><img src="assets/img/projets/doukhan/plante-romarin.webp" alt="" width="267" height="400">Romarin</li>
+                <li><img src="assets/img/projets/doukhan/plante-lavande-papillon.webp" alt="" width="251" height="376">Lavande papillon</li>
+                <li><img src="assets/img/projets/doukhan/plante-convolvulus.webp" alt="" width="277" height="277">Liseron argenté</li>
+                <li><img src="assets/img/projets/doukhan/plante-marguerite.webp" alt="" width="333" height="333">Marguerite</li>
+                <li><img src="assets/img/projets/doukhan/plante-hortensia.webp" alt="" width="400" height="400">Hortensia</li>
+                <li><img src="assets/img/projets/doukhan/plante-jasmin-treillage.webp" alt="" width="300" height="368">Jasmin palissé</li>
+              </ul>
+            </div>
+
+            <p class="folio-foot" style="left: 6%">Paris Terrasse · projet Doukhan · images non exhaustives</p>
+            <span class="page__number">26</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 27 — Projet Doukhan, intentions et moodboard">
+          <div class="page__content folio">
+            <header class="folio-band">
+              <p class="folio-band__name">Doukhan</p>
+              <p class="folio-band__ref">Projet 03 · terrasse en ville</p>
+            </header>
+
+            <div class="folio-intro" style="--y: 12.5%">
+              <p class="folio-eyebrow">Paris Terrasse · Paysagistes</p>
+              <h2 class="folio-title">Une terrasse aux tons de terre et de vert</h2>
+              <p class="folio-text">Bois clair, terre cuite et feuillages généreux&nbsp;: une terrasse en L qui se partage entre salon, table d’été et un jardin de bacs côté chambre.</p>
+            </div>
+
+            <div class="folio-brief" style="--y: 30%">
+              <section>
+                <h3>Sujet</h3>
+                <p>Habiller une terrasse en L, ouverte sur le séjour et la chambre.</p>
+              </section>
+              <section>
+                <h3>Stratégie</h3>
+                <p>Des espaces dessinés par les tapis et les grands pots, des plantes en bordure.</p>
+              </section>
+              <section>
+                <h3>Programme</h3>
+                <p>Salon · espace dînatoire · bacs fleuris · ombrage par parasol.</p>
+              </section>
+            </div>
+
+            <p class="folio-label" style="left: 8%; top: 45%">Moodboard</p>
+
+            <figure class="folio-pic" style="--x: 8%; --y: 49.5%; --w: 26%; --h: 23%">
+              <img src="assets/img/projets/doukhan/mood-hortensias.webp" alt="Bordure d’hortensias blancs et bleus" width="359" height="538">
+            </figure>
+            <figure class="folio-pic" style="--x: 8%; --y: 73.5%; --w: 26%; --h: 19%">
+              <img src="assets/img/projets/doukhan/mood-bois.webp" alt="Lames de bois clair" width="434" height="346">
+            </figure>
+            <figure class="folio-pic" style="--x: 35.5%; --y: 49.5%; --w: 27%; --h: 43%">
+              <img src="assets/img/projets/doukhan/mood-pots.webp" alt="Pots en terre cuite plantés de graminées et de vivaces argentées" width="337" height="600">
+            </figure>
+            <figure class="folio-pic" style="--x: 64%; --y: 49.5%; --w: 28%; --h: 43%">
+              <img src="assets/img/projets/doukhan/mood-massif.webp" alt="Massif foisonnant d’érables rouges, heuchères et fleurs orangées" width="525" height="700">
+            </figure>
+            <span class="page__number">27</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 28 — Projet Doukhan, moodboard (suite)">
+          <div class="page__content folio">
+            <figure class="folio-pic folio-pic--swatch" style="--x: 70%; --y: 7%; --w: 24%; --h: 36%; --z: 1">
+              <img src="assets/img/projets/doukhan/mood-tapis-vert.webp" alt="Tapis tissé vert mousse" width="276" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 6%; --y: 12%; --w: 30%; --h: 30%; --z: 2">
+              <img src="assets/img/projets/doukhan/mood-paniculata.webp" alt="Hortensia paniculé en fleur, blanc crème" width="342" height="512">
+            </figure>
+            <figure class="folio-pic" style="--x: 37.5%; --y: 12%; --w: 37%; --h: 30%; --z: 2">
+              <img src="assets/img/projets/doukhan/mood-erigeron.webp" alt="Coussin d’érigérons roses et blancs" width="412" height="549">
+            </figure>
+            <figure class="folio-pic folio-pic--swatch" style="--x: 77%; --y: 38%; --w: 19%; --h: 44%; --z: 1">
+              <img src="assets/img/projets/doukhan/mood-tapis-terracotta.webp" alt="Tapis tissé terracotta" width="294" height="413">
+            </figure>
+            <figure class="folio-pic" style="--x: 6%; --y: 43.5%; --w: 74%; --h: 42%; --z: 2; --pos: center 60%">
+              <img src="assets/img/projets/doukhan/mood-salon.webp" alt="Terrasse parisienne : banquette en bois et cannage, tapis berbère, pots en terre cuite et végétation dense" width="820" height="820">
+            </figure>
+            <p class="folio-hand" style="--x: 62%; --y: 3%; --r: -2deg">tapis tissés, vert &amp; terracotta</p>
+
+            <div class="folio-colors folio-colors--plants" style="--x: 6%; --y: 87.5%">
+              <p class="folio-label">Palette végétale</p>
+              <span><img src="assets/img/projets/doukhan/plante-hortensia.webp" alt="" width="400" height="400">hortensia</span>
+              <span><img src="assets/img/projets/doukhan/plante-erigeron.webp" alt="" width="300" height="400">érigéron</span>
+              <span><img src="assets/img/projets/doukhan/plante-lavande.webp" alt="" width="400" height="288">lavande</span>
+              <span><img src="assets/img/projets/doukhan/plante-agapanthe.webp" alt="" width="300" height="300">agapanthe</span>
+              <span><img src="assets/img/projets/doukhan/plante-euphorbe.webp" alt="" width="316" height="316">euphorbe</span>
+              <span><img src="assets/img/projets/doukhan/plante-jasmin.webp" alt="" width="300" height="400">jasmin étoilé</span>
+            </div>
+            <span class="page__number">28</span>
+          </div>
+        </section>
+
+        <!-- Pages 29–30 : projet Doukhan — grand moodboard en mosaïque (photos droites,
+             gouttières fines, échantillons de tapis qui chevauchent la grille). -->
+        <section class="page page--blank page--folio" aria-label="Page 29 — Projet Doukhan, moodboard d’ambiance">
+          <div class="page__content folio">
+            <p class="folio-label" style="left: 6%; top: 2.6%">Doukhan · moodboard d’ambiance</p>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 7%; --w: 55%; --h: 27%">
+              <img src="assets/img/projets/doukhan/salon-perspective.webp" alt="Rendu 3D du salon : canapé blanc, tables basses rondes sur tapis terracotta" width="1500" height="844">
+            </figure>
+            <figure class="folio-pic" style="--x: 62.5%; --y: 7%; --w: 31.5%; --h: 13%">
+              <img src="assets/img/projets/doukhan/plante-lavande.webp" alt="Lavande" width="400" height="288">
+            </figure>
+            <figure class="folio-pic" style="--x: 62.5%; --y: 21.5%; --w: 15%; --h: 12.5%">
+              <img src="assets/img/projets/doukhan/plante-agapanthe.webp" alt="Agapanthe" width="300" height="300">
+            </figure>
+            <figure class="folio-pic" style="--x: 79%; --y: 21.5%; --w: 15%; --h: 12.5%">
+              <img src="assets/img/projets/doukhan/plante-euphorbe.webp" alt="Euphorbe" width="316" height="316">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 35.5%; --w: 22%; --h: 28%">
+              <img src="assets/img/projets/doukhan/salon-tables-basses.webp" alt="Tables basses rondes" width="360" height="450">
+            </figure>
+            <figure class="folio-pic" style="--x: 29.5%; --y: 35.5%; --w: 37%; --h: 28%">
+              <img src="assets/img/projets/doukhan/repas-vue-d.webp" alt="Rendu 3D : la table et le parasol vus depuis le bout de la terrasse" width="820" height="820">
+            </figure>
+            <figure class="folio-pic" style="--x: 68%; --y: 35.5%; --w: 26%; --h: 28%">
+              <img src="assets/img/projets/doukhan/plante-jasmin.webp" alt="Jasmin étoilé" width="300" height="400">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 65%; --w: 26%; --h: 28%">
+              <img src="assets/img/projets/doukhan/plante-erigeron.webp" alt="Érigéron" width="300" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 33.5%; --y: 65%; --w: 20%; --h: 13.5%">
+              <img src="assets/img/projets/doukhan/salon-bois.webp" alt="Lames de bois clair du platelage" width="434" height="346">
+            </figure>
+            <figure class="folio-pic" style="--x: 33.5%; --y: 80%; --w: 20%; --h: 13%">
+              <img src="assets/img/projets/doukhan/plante-romarin.webp" alt="Romarin" width="267" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 55%; --y: 65%; --w: 39%; --h: 28%">
+              <img src="assets/img/projets/doukhan/repas-vue-a.webp" alt="Rendu 3D : la table d’été sous le parasol" width="1500" height="844">
+            </figure>
+
+            <figure class="folio-pic folio-pic--swatch" style="--x: 87%; --y: 55%; --w: 11%; --h: 25%; --z: 3">
+              <img src="assets/img/projets/doukhan/mood-tapis-terracotta.webp" alt="Tapis tissé terracotta" width="294" height="413">
+            </figure>
+            <span class="page__number">29</span>
+          </div>
+        </section>
+
+        <section class="page page--blank page--folio" aria-label="Page 30 — Projet Doukhan, moodboard d’ambiance (suite)">
+          <div class="page__content folio">
+            <figure class="folio-pic" style="--x: 6%; --y: 7%; --w: 58%; --h: 25%">
+              <img src="assets/img/projets/doukhan/chambre-a.webp" alt="Rendu 3D de la terrasse côté chambre : bacs blancs plantés devant un mur de lierre" width="1500" height="844">
+            </figure>
+            <figure class="folio-pic folio-pic--swatch" style="--x: 74%; --y: 3.5%; --w: 22%; --h: 31%; --z: 1">
+              <img src="assets/img/projets/doukhan/mood-tapis-vert.webp" alt="Tapis tissé vert mousse" width="276" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 65.5%; --y: 7%; --w: 21%; --h: 25%; --z: 2">
+              <img src="assets/img/projets/doukhan/plante-hortensia.webp" alt="Hortensia" width="400" height="400">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 33.5%; --w: 19%; --h: 27%">
+              <img src="assets/img/projets/doukhan/salon-fauteuil.webp" alt="Fauteuil bas en teck" width="300" height="450">
+            </figure>
+            <figure class="folio-pic" style="--x: 26.5%; --y: 33.5%; --w: 30%; --h: 27%">
+              <img src="assets/img/projets/doukhan/salon-olivier-pot.webp" alt="Olivier en pot émaillé vert" width="500" height="500">
+            </figure>
+            <figure class="folio-pic" style="--x: 58%; --y: 33.5%; --w: 17%; --h: 27%">
+              <img src="assets/img/projets/doukhan/plante-lavande-papillon.webp" alt="Lavande papillon" width="251" height="376">
+            </figure>
+            <figure class="folio-pic" style="--x: 76.5%; --y: 33.5%; --w: 17.5%; --h: 13%">
+              <img src="assets/img/projets/doukhan/salon-tapis.webp" alt="Tapis rond terracotta" width="383" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 76.5%; --y: 47.5%; --w: 17.5%; --h: 13%">
+              <img src="assets/img/projets/doukhan/plante-convolvulus.webp" alt="Liseron argenté" width="277" height="277">
+            </figure>
+
+            <figure class="folio-pic" style="--x: 6%; --y: 62%; --w: 50%; --h: 31%">
+              <img src="assets/img/projets/doukhan/plan-3d-b.webp" alt="Plan 3D en biais : salon en L et bacs plantés" width="1200" height="675">
+            </figure>
+            <figure class="folio-pic" style="--x: 57.5%; --y: 62%; --w: 17%; --h: 31%">
+              <img src="assets/img/projets/doukhan/plante-marguerite.webp" alt="Marguerite" width="333" height="333">
+            </figure>
+            <figure class="folio-pic" style="--x: 76%; --y: 62%; --w: 18%; --h: 15%">
+              <img src="assets/img/projets/doukhan/plante-rudbeckia.webp" alt="Rudbeckia" width="320" height="400">
+            </figure>
+            <figure class="folio-pic" style="--x: 76%; --y: 78.5%; --w: 18%; --h: 14.5%">
+              <img src="assets/img/projets/doukhan/plante-lilas-indes.webp" alt="Lilas des Indes" width="390" height="390">
+            </figure>
+
+            <p class="folio-foot" style="left: 6%; bottom: 2.4%">Paris Terrasse · projet Doukhan · images non exhaustives</p>
+            <span class="page__number">30</span>
+          </div>
+        </section>
+
+        <!-- Pages 31–32 : appel à l'action, juste avant la 4e de couverture -->
+        <section class="page page--blank page--paper page--project" aria-label="Page 31 — Comment se déroule votre projet">
           <div class="page__content project-page">
             <header class="project-page__heading">
               <p class="project-page__eyebrow">Votre projet</p>
@@ -837,11 +1380,11 @@
                 </div>
               </li>
             </ol>
-            <span class="page__number">17</span>
+            <span class="page__number">31</span>
           </div>
         </section>
 
-        <section class="page page--blank page--paper page--project" aria-label="Page 18 — Demander un devis gratuit">
+        <section class="page page--blank page--paper page--project" aria-label="Page 32 — Demander un devis gratuit">
           <div class="page__content project-page project-page--cta">
             <p class="project-page__eyebrow">Parlons-en</p>
             <hr class="cover__line">
@@ -863,7 +1406,7 @@
               <img src="assets/img/qr-paristerrasse.svg" alt="QR code vers le site paristerrasse.fr" width="116" height="116">
               <figcaption>Scannez pour retrouver<br>nos réalisations et nous contacter</figcaption>
             </figure>
-            <span class="page__number">18</span>
+            <span class="page__number">32</span>
           </div>
         </section>
 

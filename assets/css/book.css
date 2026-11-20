@@ -3051,3 +3051,393 @@
   font-style: italic;
   letter-spacing: .08em;
 }
+
+
+/* ---------- Pages 17–28 : projets Roche et Doukhan, mise en page « folio » ----------
+   Inspirée des books de référence : bandeau gris avec le nom du projet,
+   bloc Sujet / Stratégie / Programme, photos à fond perdu, petites légendes,
+   titre vertical sur le bord extérieur.
+   Chaque élément est posé en position absolue, en % de la page (format 3/4) :
+     style="--x: 8%; --y: 12%; --w: 84%; --h: 36%"
+   Astuce : une image 16/9 garde ses proportions avec --h = --w × 0,42. */
+
+/* Même papier beige que les pages 1–2 (voir .page--paper) */
+.page--folio {
+  background-color: #F5F2E9;
+  background-image:
+    radial-gradient(ellipse at 18% 22%, rgba(255, 255, 255, .8), transparent 58%),
+    linear-gradient(115deg, rgba(142, 128, 99, .035), transparent 42%, rgba(142, 128, 99, .045));
+}
+
+.folio {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  color: #3A4136;
+  font-size: 2.4cqh;
+}
+
+.folio > * {
+  position: absolute;
+  margin: 0;
+}
+
+/* Bandeau gris en haut de page (nom du projet + rubrique) */
+.folio-band {
+  top: 4%;
+  left: 0;
+  width: 88%;
+  height: 5.4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0 4% 0 8%;
+  border-bottom: 1px solid #D9D0BC;
+}
+
+.folio-band--right {
+  left: auto;
+  right: 0;
+  padding: 0 8% 0 4%;
+}
+
+.folio-band__name {
+  font-family: var(--font-title);
+  font-size: .95em;
+  letter-spacing: .04em;
+}
+
+.folio-band__ref {
+  color: #77796F;
+  font-size: .46em;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* Petit titre souligné */
+.folio-label {
+  display: inline-block;
+  padding-bottom: .25em;
+  border-bottom: 1px solid rgba(58, 65, 54, .4);
+  color: #3A4136;
+  font-size: .46em;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.folio-intro {
+  left: var(--x, 8%);
+  top: var(--y, 12%);
+  width: var(--w, 84%);
+}
+
+.folio-eyebrow {
+  margin: 0 0 .5em;
+  color: var(--gold);
+  font-size: .46em;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.folio-title {
+  margin: 0 0 .45em;
+  color: #2F342C;
+  font-family: var(--font-title);
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.folio-text {
+  margin: 0 0 .6em;
+  color: #6E716A;
+  font-size: .55em;
+  line-height: 1.6;
+}
+
+/* Sujet / Stratégie / Programme */
+.folio-brief {
+  left: var(--x, 8%);
+  top: var(--y, 30%);
+  width: var(--w, 84%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4em;
+  padding: .9em 0;
+  border-top: 1px solid #DDD5C3;
+  border-bottom: 1px solid #DDD5C3;
+}
+
+.folio-brief h3 {
+  margin: 0 0 .5em;
+  color: #2F342C;
+  font-family: var(--font-title);
+  font-size: .62em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.folio-brief p {
+  margin: 0;
+  color: #6E716A;
+  font-size: .46em;
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* Photo posée sur la page */
+.folio-pic {
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  z-index: var(--z, 1);
+}
+
+.folio-pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, center);
+  background: #EFEDE7;
+}
+
+/* Objet détouré (pot, luminaire...) : posé sans fond */
+.folio-pic--cut img {
+  object-fit: contain;
+  background: none;
+  filter: drop-shadow(0 3px 5px rgba(40, 36, 28, .18));
+}
+
+/* Échantillon (tapis, matière) qui chevauche les photos, comme sur une planche */
+.folio-pic--swatch img {
+  box-shadow: 0 6px 14px -6px rgba(40, 36, 28, .45);
+}
+
+/* Photo encadrée de blanc, posée sur une photo à fond perdu */
+.folio-pic--framed {
+  padding: .45em;
+  background: #FFFFFF;
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .5);
+}
+
+/* Légende discrète sous la photo */
+.folio-pic figcaption {
+  position: absolute;
+  top: calc(100% + .45em);
+  left: 0;
+  right: 0;
+  color: #85877F;
+  font-size: .42em;
+  letter-spacing: .06em;
+  line-height: 1.3;
+}
+
+/* Légende en étiquette, posée sur la photo */
+.folio-pic figcaption.folio-tag,
+.folio-tag {
+  top: auto;
+  right: auto;
+  bottom: 1.1em;
+  left: 1.1em;
+  padding: .5em .9em;
+  background: rgba(255, 255, 255, .93);
+  color: #2F342C;
+  font-size: .48em;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.folio-tag--top {
+  top: 1.1em;
+  bottom: auto;
+}
+
+/* Titre vertical sur le bord extérieur, comme le book client */
+.folio-vtitle {
+  top: var(--y, 6%);
+  left: var(--x, auto);
+  right: var(--r, auto);
+  z-index: 3;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--color, #2F342C);
+  font-size: .62em;
+  font-weight: 600;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+}
+
+/* Note manuscrite */
+.folio-hand {
+  left: var(--x);
+  top: var(--y);
+  z-index: 4;
+  color: #5D6458;
+  font-family: 'Caveat', 'Segoe Print', cursive;
+  font-size: .95em;
+  line-height: 1;
+  transform: rotate(var(--r, -3deg));
+}
+
+/* Liste de points (notes, usages) */
+.folio-notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.folio-notes li {
+  position: relative;
+  margin-bottom: .35em;
+  padding-left: 1.1em;
+  color: #6E716A;
+  font-size: .5em;
+  line-height: 1.45;
+}
+
+.folio-notes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .6em;
+  width: .45em;
+  height: 1px;
+  background: var(--gold);
+}
+
+.folio-notes strong {
+  color: #2F342C;
+  font-weight: 600;
+}
+
+/* Grille d'échantillons : plantes, matériaux, mobilier */
+.folio-grid {
+  left: var(--x, 8%);
+  top: var(--y);
+  width: var(--w, 84%);
+}
+
+.folio-grid ul {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  gap: .9em .7em;
+  margin: .7em 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.folio-grid li {
+  min-width: 0;
+  color: #3A4136;
+  font-size: .44em;
+  line-height: 1.25;
+}
+
+.folio-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio, 1);
+  margin-bottom: .55em;
+  object-fit: cover;
+  background: #EFEDE7;
+}
+
+.folio-grid strong {
+  display: block;
+  color: #2F342C;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.folio-grid small {
+  color: #85877F;
+  font-size: 1em;
+  font-style: italic;
+}
+
+.folio-grid--products img {
+  padding: 6%;
+  object-fit: contain;
+  background: #ECE6D8;
+}
+
+.folio-grid--products img.is-photo {
+  padding: 0;
+  object-fit: cover;
+}
+
+/* Nuancier : pastilles de couleur */
+.folio-colors {
+  left: var(--x, 8%);
+  top: var(--y);
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+}
+
+.folio-colors .folio-label {
+  margin-right: .4em;
+}
+
+.folio-colors span {
+  display: flex;
+  align-items: center;
+  gap: .45em;
+  color: #6E716A;
+  font-size: .44em;
+}
+
+.folio-colors i {
+  display: block;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+}
+
+.folio-foot {
+  left: 8%;
+  bottom: 2.6%;
+  color: #9A9C94;
+  font-size: .42em;
+  font-style: italic;
+  letter-spacing: .08em;
+}
+
+
+/* Variante : palette végétale en vignettes rondes, le nom sous la photo */
+.folio-colors--plants {
+  gap: 1.1em;
+}
+
+.folio-colors--plants .folio-label {
+  white-space: nowrap;
+}
+
+.folio-colors--plants span {
+  flex-direction: column;
+  gap: .35em;
+  white-space: nowrap;
+}
+
+.folio-colors--plants img {
+  display: block;
+  width: 3.4em;
+  height: 3.4em;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(40, 36, 28, .18);
+  object-fit: cover;
+}
